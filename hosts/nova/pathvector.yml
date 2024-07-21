@@ -1,0 +1,69 @@
+asn: 215207
+router-id: 192.67.33.7
+source4: 192.67.33.7
+source6: 2602:fa7e:14::6
+prefixes:
+  - 2602:fbcf:d0::/44
+  - 2a0f:85c1:3aa::/48
+
+templates:
+  upstream:
+    allow-local-as: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 80
+    import-limit4: 1500000
+    import-limit6: 500000
+    add-on-import: [ "215207:0:12" ]
+
+  routeserver:
+    filter-transit-asns: true
+    auto-import-limits: true
+    enforce-peer-nexthop: false
+    enforce-first-as: false
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 90
+    add-on-import: [ "215207:0:13" ]
+
+  peer:
+    filter-irr: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 100
+    add-on-import: [ "215207:0:14" ]
+
+  downstream:
+    filter-irr: true
+    allow-blackhole-community: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 200
+    add-on-import: [ "215207:0:15" ]
+
+peers:
+  Paradox Networks:
+    asn: 52025
+    template: upstream
+    neighbors:
+      - 192.67.33.1
+      - 2602:fa7e:14::1
+
+  NVIX Route Servers:
+    asn: 57369
+    template: routeserver
+    neighbors:
+      - 2001:504:125:e2::1
+      - 2001:504:125:e2::2
+
+  AS112:
+    asn: 112
+    template: peer
+    neighbors:
+      - 2001:504:125:e2::112
