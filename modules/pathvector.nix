@@ -55,7 +55,7 @@ in
       };
     };
 
-    config.environment.etc."bird/bird.conf".source = builtins.readFile ./bird-default.conf;
+    environment.etc."bird/bird.conf".source = builtins.readFile ./bird-default.conf;
 
     # Custom bird systemd service ENTIRELY BECAUSE PATHVECTOR CANNOT WRITE TO A DIFFERENT GODDAMN FILE
     systemd.services.bird = {
