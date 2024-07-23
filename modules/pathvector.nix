@@ -11,12 +11,6 @@ let
 in
 
 {
-  environment.systemPackages = with pkgs; [
-    bgpq4
-    bird
-    pathvector
-  ];
-
   options.pathvector = {
     configFile = lib.mkOption {
       type = with lib.types; path;
@@ -26,6 +20,12 @@ in
   };
 
   config = {
+    environment.systemPackages = with pkgs; [
+      bgpq4
+      bird
+      pathvector
+    ];
+
     environment.etc."pathvector.yml".source = pkgs.writeTextFile {
       name = "pathvector";
       text = ''
