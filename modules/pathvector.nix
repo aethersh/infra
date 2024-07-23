@@ -10,14 +10,7 @@
   services.bird2 = {
     enable = true;
     checkConfig = true;
-    config = ''
-      router id 10.0.0.1;
-
-      protocol kernel {
-        export all;     # Default is export none
-        persist;                # Don't remove routes on BIRD shutdown
-      }
-    '';
+    config = builtins.readFile ./bird-default.conf;
   };
 
   systemd.services.pathvector = {
