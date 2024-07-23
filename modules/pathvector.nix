@@ -28,9 +28,7 @@ in
 
     environment.etc."pathvector.yml".source = pkgs.writeTextFile {
       name = "pathvector";
-      text = ''
-        bird-binary: ${pkgs.bird}/bin/bird
-      '' ++ builtins.readFile cfg.configFile;
+      text = "bird-binary: ${pkgs.bird}/bin/bird\n" + builtins.readFile cfg.configFile;
     };
 
     services.bird2 = {
