@@ -49,13 +49,18 @@ in
       requires = [ "bird2.service" ];
       serviceConfig = {
         Type = "forking";
+        User = "pathvector";
+        Group = "bird";
         ExecStart = "${pkgs.pathvector}/bin/pathvector generate";
         ExecReload = "${pkgs.pathvector}/bin/pathvector generate";
         Environment = "PATH=/bin:/sbin:/nix/var/nix/profiles/default/bin:${pkgs.bgpq4}/bin:${pkgs.bird}/bin:${pkgs.pathvector}/bin";
       };
     };
 
-    environment.etc."bird/bird.conf".source = ./bird-default.conf;
+    environment.etc."bird/bird.conf" = {
+      source = ./bird-default.conf;
+      mode = "0664";
+    };
 
     # Custom bird systemd service ENTIRELY BECAUSE PATHVECTOR CANNOT WRITE TO A DIFFERENT GODDAMN FILE
     systemd.services.bird = {
@@ -86,6 +91,11 @@ in
     users = {
       users.bird = {
         description = "BIRD Internet Routing Daemon user";
+        group = "bird";
+        isSystemUser = true;
+      };
+      users.pathvector = {
+        description = "Pathvector user";
         group = "bird";
         isSystemUser = true;
       };
