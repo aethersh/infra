@@ -38,15 +38,16 @@ in
     };
   };
 
-  # systemd.services.pathvector = {
-  #   description = "Run pathvector and regenerate on config change";
-  #   wantedBy = [ "multi-user.target" ];
-  #   reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
-  #   requires = [ "bird2.service" ];
-  #   serviceConfig = {
-  #     Type = "forking";
-  #     ExecStart = "${pkgs.pathvector}/bin/pathvector generate";
-  #     ExecReload = "${pkgs.pathvector}/bin/pathvector generate";
-  #   };
-  # };
+  systemd.services.pathvector = {
+    description = "Run pathvector and regenerate on config change";
+    wantedBy = [ "multi-user.target" ];
+    reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
+    requires = [ "bird2.service" ];
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${pkgs.pathvector}/bin/pathvector generate && cp -f /etc/bird/bird.conf /etc/bird/bird2.conf";
+      ExecReload = "${pkgs.pathvector}/bin/pathvector generate && cp -f /etc/bird/bird.conf /etc/bird/bird2.conf";
+      Environment = "PATH=/bin:/sbin:/nix/var/nix/profiles/default/bin:${pkgs.bgpq4}/bin:${pkgs.bird}/bin:${pkgs.pathvector}/bin";
+    };
+  };
 }
