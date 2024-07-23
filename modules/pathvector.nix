@@ -25,17 +25,19 @@ in
     };
   };
 
-  environment.etc."pathvector.yml".source = pkgs.writeTextFile {
-    name = "pathvector";
-    text = ''
-      bird-binary: ${pkgs.bird}/bin/bird
-    '' ++ builtins.readFile cfg.configFile;
-  };
+  config = {
+    environment.etc."pathvector.yml".source = pkgs.writeTextFile {
+      name = "pathvector";
+      text = ''
+        bird-binary: ${pkgs.bird}/bin/bird
+      '' ++ builtins.readFile cfg.configFile;
+    };
 
-  services.bird2 = {
-    enable = true;
-    checkConfig = true;
-    config = builtins.readFile ./bird-default.conf;
+    services.bird2 = {
+      enable = true;
+      checkConfig = true;
+      config = builtins.readFile ./bird-default.conf;
+    };
   };
 
   # systemd.services.pathvector = {
