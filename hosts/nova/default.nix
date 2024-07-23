@@ -49,7 +49,8 @@
     };
   };
 
-  environment.etc."pathvector.yml".source = ./pathvector.yml;
+  # See options.pathvector in modules/pathvector.nix
+  pathvector.configFile = ./pathvector.yml;
 
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.05";

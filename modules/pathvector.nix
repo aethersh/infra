@@ -1,4 +1,14 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+
+let
+
+  cfg = config.pathvector;
+in
 
 {
   environment.systemPackages = with pkgs; [
@@ -6,6 +16,21 @@
     bird
     pathvector
   ];
+
+  options.pathvector = {
+    configFile = lib.mkOption {
+      type = with lib.types; path;
+      default = ./pathvector.yml;
+      description = "Pathvector configuration file";
+    };
+  };
+
+  environment.etc."pathvector.yml".source = pkgs.writeTextFile {
+    name = "pathvector";
+    text = ''
+      bird-binary: ${pkgs.bird}/bin/bird
+    '' ++ builtins.readFile cfg.configFile;
+  };
 
   services.bird2 = {
     enable = true;
