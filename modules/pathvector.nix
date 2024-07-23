@@ -9,8 +9,16 @@
 
   services.bird2 = {
     enable = true;
-    checkConfig = false;
-    config = '''';
+    checkConfig = true;
+    config = ''
+      protocol kernel {
+              scan time 20;           # Scan kernel routing table every 20 seconds
+      }
+
+      protocol device {
+              scan time 10;           # Scan interfaces every 10 seconds
+      }
+    '';
   };
 
   systemd.services.pathvector = {
