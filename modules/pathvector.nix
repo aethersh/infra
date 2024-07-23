@@ -44,9 +44,16 @@ in
       requires = [ "bird2.service" ];
       serviceConfig = {
         Type = "forking";
-        ExecStart = "${pkgs.pathvector}/bin/pathvector generate && cp -f /etc/bird/bird.conf /etc/bird/bird2.conf";
-        ExecReload = "${pkgs.pathvector}/bin/pathvector generate && cp -f /etc/bird/bird.conf /etc/bird/bird2.conf";
+        ExecStart = "${pkgs.pathvector}/bin/pathvector generate";
+        ExecReload = "${pkgs.pathvector}/bin/pathvector generate";
         Environment = "PATH=/bin:/sbin:/nix/var/nix/profiles/default/bin:${pkgs.bgpq4}/bin:${pkgs.bird}/bin:${pkgs.pathvector}/bin";
+      };
+    };
+
+    systemd.services.bird2 = {
+      reloadTriggers = lib.mkForce config.environment.etc."bird/bird.conf".source;
+      serviceConfig = {
+        ExecStart = lib.mkForce "${pkgs.bird}/bin/bird -c /etc/bird/bird2.conf";
       };
     };
   };
