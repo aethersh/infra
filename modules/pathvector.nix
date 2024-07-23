@@ -7,6 +7,12 @@
     pathvector
   ];
 
+  services.bird2 = {
+    enable = true;
+    checkConfig = false;
+    config = '''';
+  };
+
   systemd.services.pathvector = {
     description = "Run pathvector and regenerate on config change";
     wantedBy = [ "multi-user.target" ];

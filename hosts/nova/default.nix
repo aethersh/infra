@@ -49,10 +49,6 @@
     };
   };
 
-  services.bird2 = {
-    enable = true;
-  };
-
   environment.etc."pathvector.yml".source = ./pathvector.yml;
 
   # ======================== DO NOT CHANGE THIS ========================
