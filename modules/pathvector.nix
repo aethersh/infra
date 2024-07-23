@@ -61,7 +61,7 @@ in
     systemd.services.bird = {
       description = "BIRD Internet Routing Daemon";
       wantedBy = [ "multi-user.target" ];
-      reloadTriggers = config.environment.etc."bird/bird.conf".source;
+      reloadTriggers = [ config.environment.etc."bird/bird.conf".source ];
       serviceConfig = {
         Type = "forking";
         Restart = "on-failure";
