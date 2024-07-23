@@ -11,12 +11,11 @@
     enable = true;
     checkConfig = true;
     config = ''
-      protocol kernel {
-              scan time 20;           # Scan kernel routing table every 20 seconds
-      }
+      router id 10.0.0.1;
 
-      protocol device {
-              scan time 10;           # Scan interfaces every 10 seconds
+      protocol kernel {
+        export all;     # Default is export none
+        persist;                # Don't remove routes on BIRD shutdown
       }
     '';
   };
