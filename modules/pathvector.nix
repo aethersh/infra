@@ -51,7 +51,7 @@ in
     };
 
     systemd.services.bird2 = {
-      reloadTriggers = lib.mkForce config.environment.etc."bird/bird.conf".source;
+      # reloadTriggers = lib.mkForce config.environment.etc."bird/bird.conf".source;
       serviceConfig = {
         ExecStart = lib.mkForce "${pkgs.bird}/bin/bird -c /etc/bird/bird2.conf";
       };
