@@ -8,6 +8,11 @@
 let
 
   cfg = config.pathvector;
+  caps = [
+    "CAP_NET_ADMIN"
+    "CAP_NET_BIND_SERVICE"
+    "CAP_NET_RAW"
+  ];
 in
 
 {
@@ -32,9 +37,9 @@ in
     };
 
     services.bird2 = {
-      enable = true;
-      checkConfig = true;
-      config = builtins.readFile ./bird-default.conf;
+      enable = false;
+      # checkConfig = true;
+      # config = builtins.readFile ./bird-default.conf;
     };
 
     systemd.services.pathvector = {
@@ -50,11 +55,41 @@ in
       };
     };
 
-    systemd.services.bird2 = {
-      # reloadTriggers = lib.mkForce config.environment.etc."bird/bird.conf".source;
+    config.environment.etc."bird/bird.conf".source = builtins.readFile ./bird-default.conf;
+
+    # Custom bird systemd service ENTIRELY BECAUSE PATHVECTOR CANNOT WRITE TO A DIFFERENT GODDAMN FILE
+    systemd.services.bird = {
+      description = "BIRD Internet Routing Daemon";
+      wantedBy = [ "multi-user.target" ];
+      reloadTriggers = lib.optional cfg.autoReload config.environment.etc."bird/bird.conf".source;
       serviceConfig = {
-        ExecStart = lib.mkForce "${pkgs.bird}/bin/bird -c /etc/bird/bird2.conf";
+        Type = "forking";
+        Restart = "on-failure";
+        User = "bird";
+        Group = "bird";
+        ExecStart = "${pkgs.bird}/bin/bird -c /etc/bird/bird.conf";
+        ExecReload = "${pkgs.bird}/bin/birdc configure";
+        ExecStop = "${pkgs.bird}/bin/birdc down";
+        RuntimeDirectory = "bird";
+        CapabilityBoundingSet = caps;
+        AmbientCapabilities = caps;
+        ProtectSystem = "full";
+        ProtectHome = "yes";
+        ProtectKernelTunables = true;
+        ProtectControlGroups = true;
+        PrivateTmp = true;
+        PrivateDevices = true;
+        SystemCallFilter = "~@cpu-emulation @debug @keyring @module @mount @obsolete @raw-io";
+        MemoryDenyWriteExecute = "yes";
       };
+    };
+    users = {
+      users.bird = {
+        description = "BIRD Internet Routing Daemon user";
+        group = "bird";
+        isSystemUser = true;
+      };
+      groups.bird = { };
     };
   };
 
