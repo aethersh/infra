@@ -38,6 +38,7 @@
     domain = "as215207.net";
     networkmanager.enable = false;
     useDHCP = false;
+    tempAddresses = "disabled";
   };
 
   services = {
