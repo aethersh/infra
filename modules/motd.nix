@@ -1,6 +1,9 @@
 { config, lib, ... }:
-let cfg = config.motd;
-in {
+
+let
+  cfg = config.motd;
+in
+{
   options.motd = {
     place = lib.mkOption {
       type = with lib.types; str;

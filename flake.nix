@@ -6,7 +6,13 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = { self, nixpkgs, deploy-rs, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      deploy-rs,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -22,8 +28,9 @@
           })
         ];
       };
-    in {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+    in
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = {
         # pete = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
@@ -65,14 +72,12 @@
         nodes = {
           nova = {
             hostname = "nova.as215207.net";
-            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.nova;
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
           };
         };
       };
 
       # This is highly advised, and will prevent many possible mistakes
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

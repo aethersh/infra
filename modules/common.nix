@@ -16,7 +16,10 @@
     };
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       trusted-users = [ "admin" ];
     };
   };
@@ -57,7 +60,11 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [ iperf3 neofetch pciutils ];
+  environment.systemPackages = with pkgs; [
+    iperf3
+    neofetch
+    pciutils
+  ];
 
   security.sudo.wheelNeedsPassword = false;
 

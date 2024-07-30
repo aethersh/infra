@@ -1,4 +1,6 @@
-{ ... }: {
+{ ... }:
+
+{
   imports = [
     ../../modules/common.nix
 
@@ -21,22 +23,28 @@
     interfaces = {
       ens18 = {
         # ParadoxNetworks
-        ipv4.addresses = [{
-          address = "192.67.33.7";
-          prefixLength = 26;
-        }];
-        ipv6.addresses = [{
-          address = "2602:fa7e:14::6";
-          prefixLength = 64;
-        }];
+        ipv4.addresses = [
+          {
+            address = "192.67.33.7";
+            prefixLength = 26;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "2602:fa7e:14::6";
+            prefixLength = 64;
+          }
+        ];
       };
 
       ens19 = {
         # NVIX
-        ipv6.addresses = [{
-          address = "2001:504:125:e2::e";
-          prefixLength = 64;
-        }];
+        ipv6.addresses = [
+          {
+            address = "2001:504:125:e2::e";
+            prefixLength = 64;
+          }
+        ];
       };
     };
 
