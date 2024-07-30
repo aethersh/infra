@@ -27,6 +27,7 @@
   networking = {
     domain = "as215207.net";
     useDHCP = false;
+    tempAddresses = "disabled";
   };
 
   services = {

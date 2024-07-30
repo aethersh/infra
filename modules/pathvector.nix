@@ -12,7 +12,7 @@ in {
   };
 
   config = {
-    environment.systemPackages = with pkgs; [ bird pathvector ];
+    environment.systemPackages = with pkgs; [ bgpq4 bird pathvector ];
 
     environment.etc."pathvector.yml".source = pkgs.writeTextFile {
       name = "pathvector";

@@ -56,7 +56,7 @@ peers:
       - 2602:fa7e:14::1
 
   NVIX Route Servers:
-    asn: 57369
+    asn: 62768
     template: routeserver
     neighbors:
       - 2001:504:125:e2::1
