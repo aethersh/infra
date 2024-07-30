@@ -1,0 +1,11 @@
+{
+  "nix.formatterPath": ["nix", "fmt", "--", "-"],
+  "nix.serverSettings": {
+    // settings for 'nil' LSP
+    "nil": {
+      "formatting": {
+        "command": ["nix", "fmt", "--", "-"]
+      }
+    }
+  }
+}
