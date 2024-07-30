@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   nix = {
     package = pkgs.nixFlakes;
 
@@ -51,11 +49,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    iperf3
-    neofetch
-    pciutils
-  ];
+  environment.systemPackages = with pkgs; [ iperf3 neofetch pciutils ];
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -68,4 +62,3 @@
     ];
   };
 }
-
