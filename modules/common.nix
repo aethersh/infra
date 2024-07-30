@@ -16,10 +16,7 @@
     };
 
     settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "admin" ];
     };
   };
@@ -54,13 +51,13 @@
       viAlias = true;
       vimAlias = true;
     };
+
+    bash.promptInit = ''
+      PS1="\[\e[32m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[34m\]\w\[\e[m\] \\$ "
+    '';
   };
 
-  environment.systemPackages = with pkgs; [
-    iperf3
-    neofetch
-    pciutils
-  ];
+  environment.systemPackages = with pkgs; [ iperf3 neofetch pciutils ];
 
   security.sudo.wheelNeedsPassword = false;
 

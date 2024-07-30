@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   services.chrony = {
     enable = true;
     servers = [

@@ -1,18 +1,8 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, config, lib, ... }:
 let
   cfg = config.pathvector;
-  caps = [
-    "CAP_NET_ADMIN"
-    "CAP_NET_BIND_SERVICE"
-    "CAP_NET_RAW"
-  ];
-in
-{
+  caps = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
+in {
   options.pathvector = {
     configFile = lib.mkOption {
       type = with lib.types; path;
@@ -22,19 +12,13 @@ in
   };
 
   config = {
-    environment.systemPackages = with pkgs; [
-      bgpq4
-      bird
-      pathvector
-    ];
+    environment.systemPackages = with pkgs; [ bgpq4 bird pathvector ];
 
     environment.etc."pathvector.yml".source = pkgs.writeTextFile {
       name = "pathvector";
-      text =
-        ''
-          bird-binary: ${pkgs.bird}/bin/bird
-        ''
-        + builtins.readFile cfg.configFile;
+      text = ''
+        bird-binary: ${pkgs.bird}/bin/bird
+      '' + builtins.readFile cfg.configFile;
     };
 
     environment.etc."bird/bird.conf" = {
@@ -64,7 +48,8 @@ in
           ProtectControlGroups = true;
           PrivateTmp = true;
           PrivateDevices = true;
-          SystemCallFilter = "~@cpu-emulation @debug @keyring @module @mount @obsolete @raw-io";
+          SystemCallFilter =
+            "~@cpu-emulation @debug @keyring @module @mount @obsolete @raw-io";
           MemoryDenyWriteExecute = "yes";
         };
       };
