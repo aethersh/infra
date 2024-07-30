@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   nix = {
@@ -16,7 +21,10 @@
     };
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       trusted-users = [ "admin" ];
     };
   };
@@ -28,6 +36,7 @@
 
   networking = {
     domain = "as215207.net";
+    networkmanager.enable = false;
     useDHCP = false;
   };
 
@@ -68,4 +77,3 @@
     ];
   };
 }
-
