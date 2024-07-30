@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ ... }:
+{
   services.chrony = {
     enable = true;
     servers = [

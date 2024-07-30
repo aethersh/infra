@@ -1,5 +1,11 @@
-{ pkgs, ... }: {
-  networking = { nameservers = [ "127.0.0.1" "::1" ]; };
+{ ... }:
+{
+  networking = {
+    nameservers = [
+      "127.0.0.1"
+      "::1"
+    ];
+  };
 
   services.blocky = {
     enable = true;
@@ -14,7 +20,10 @@
       ];
       bootstrapDns = {
         upstream = "https://ordns.he.net/dns-query";
-        ips = [ "74.82.42.42" "2001:470:20::2" ];
+        ips = [
+          "74.82.42.42"
+          "2001:470:20::2"
+        ];
       };
       caching.prefetching = true;
     };
