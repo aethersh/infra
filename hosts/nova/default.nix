@@ -6,6 +6,7 @@
 
     ../../modules/blocky.nix
     ../../modules/chrony.nix
+    ../../modules/globalping.nix
     ../../modules/motd.nix
     ../../modules/pathvector.nix
 
