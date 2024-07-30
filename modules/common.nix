@@ -55,8 +55,9 @@
       vimAlias = true;
     };
 
+    # Cleaner Bash prompt
     bash.promptInit = ''
-      PS1="\[\e[32m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[34m\]\w\[\e[m\] \\$ "
+      PS1="\[\e[32;1m\]\u\[\e[36;1m\]@\[\e[32;1m\]\h \[\e[34m\]\w\[\e[m\] \\$ "
     '';
   };
 

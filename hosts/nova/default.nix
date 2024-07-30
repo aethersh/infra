@@ -58,7 +58,7 @@
     };
   };
 
-  motd.place = "ashburn, va";
+  motd.location = "ashburn, va";
 
   # See options.pathvector in modules/pathvector.nix
   pathvector.configFile = ./pathvector.yml;

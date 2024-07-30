@@ -30,9 +30,6 @@
       };
     in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
-
       nixosConfigurations = {
         # pete = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
@@ -77,6 +74,11 @@
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
           };
         };
+      };
+
+      formatter = {
+        x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+        aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
       };
 
       # This is highly advised, and will prevent many possible mistakes
