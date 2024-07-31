@@ -83,6 +83,7 @@ in
           RuntimeDirectory = "pathvector";
         };
         startAt = "daily";
+        preStart = "/usr/bin/env sleep 2"; # Blocky takes a second to start, pathvector fails if it can't resolve dns RIGHT NOW !!
       };
     };
 
