@@ -35,12 +35,12 @@
         #   system = "x86_64-linux";
         #   modules = [ ./hosts/pete ];
         # };
-        #
-        # maple = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/maple ];
-        # };
-        #
+
+        maple = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/maple ];
+        };
+
         # bay = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
         #   modules = [ ./hosts/bay ];
@@ -69,6 +69,11 @@
         sshUser = "admin";
 
         nodes = {
+          maple = {
+            hostname = "maple.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.maple;
+          };
+
           nova = {
             hostname = "nova.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
