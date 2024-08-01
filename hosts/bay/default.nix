@@ -19,30 +19,30 @@
   };
 
   networking = {
-    hostName = "maple";
+    hostName = "bay";
 
     interfaces = {
       ens18 = {
         # ParadoxNetworks
         ipv4.addresses = [
           {
-            address = "23.154.9.40";
+            address = "23.154.8.24";
             prefixLength = 26;
           }
         ];
         ipv6.addresses = [
           {
-            address = "2602:fa7e:10::4a";
+            address = "2602:fa7e:12::47";
             prefixLength = 64;
           }
         ];
       };
 
       ens19 = {
-        # ONIX
+        # FREMIX
         ipv6.addresses = [
           {
-            address = "2001:504:125:e1::bca";
+            address = "2001:504:125:e0::de";
             prefixLength = 64;
           }
         ];
@@ -50,16 +50,16 @@
     };
 
     defaultGateway = {
-      address = "23.154.9.1";
+      address = "23.154.8.1";
       interface = "ens18";
     };
     defaultGateway6 = {
-      address = "2602:fa7e:10::1";
+      address = "2602:fa7e:12::1";
       interface = "ens18";
     };
   };
 
-  motd.location = "toronto, on";
+  motd.location = "fremont, ca";
 
   # See options.pathvector in modules/pathvector.nix
   pathvector.configFile = ./pathvector.yml;

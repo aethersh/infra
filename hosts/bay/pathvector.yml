@@ -1,0 +1,73 @@
+asn: 215207
+router-id: 23.154.8.24
+source4: 23.154.8.24
+source6: 2602:fa7e:12::47
+prefixes:
+  - 2602:fbcf:d0::/44
+  - 2a0f:85c1:3aa::/48
+
+templates:
+  upstream:
+    allow-local-as: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 80
+    import-limit4: 1500000
+    import-limit6: 500000
+    add-on-import: [ "215207:0:12" ]
+
+  routeserver:
+    filter-transit-asns: true
+    auto-import-limits: true
+    enforce-peer-nexthop: false
+    enforce-first-as: false
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 90
+    add-on-import: [ "215207:0:13" ]
+
+  peer:
+    filter-irr: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 100
+    add-on-import: [ "215207:0:14" ]
+
+  downstream:
+    filter-irr: true
+    allow-blackhole-community: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: [ "215207:0:15" ]
+    remove-all-communities: 215207
+    local-pref: 200
+    add-on-import: [ "215207:0:15" ]
+
+peers:
+  Paradox Networks:
+    asn: 52025
+    template: upstream
+    multihop: true
+    enforce-peer-nexthop: false
+    neighbors:
+      - 23.154.8.2
+      - 23.154.8.3
+      - 2602:fa7e:13:2::a
+      - 2602:fa7e:13:3::a
+
+  ONIX Route Servers:
+    asn: 57369
+    template: routeserver
+    neighbors:
+      - 2001:504:125:e0::1
+      - 2001:504:125:e0::2
+
+  AS112:
+    asn: 112
+    template: peer
+    neighbors:
+      - 2001:504:125:e0::112
