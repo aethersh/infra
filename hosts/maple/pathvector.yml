@@ -70,6 +70,7 @@ peers:
 
   AS112:
     asn: 112
-    template: peer
+    local-pref: 110
+    add-on-import: [ "215207:0:112" ]
     neighbors:
       - 2001:504:125:e1::112
