@@ -60,6 +60,11 @@
           system = "x86_64-linux";
           modules = [ ./hosts/nova ];
         };
+
+        strudel = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/strudel ];
+        };
       };
 
       deploy = {
@@ -82,6 +87,11 @@
           nova = {
             hostname = "nova.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
+          };
+
+          strudel = {
+            hostname = "strudel.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.strudel;
           };
         };
       };
