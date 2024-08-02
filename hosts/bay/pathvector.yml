@@ -59,7 +59,7 @@ peers:
       - 2602:fa7e:13:2::a
       - 2602:fa7e:13:3::a
 
-  ONIX Route Servers:
+  FREMIX Route Servers:
     asn: 57369
     template: routeserver
     neighbors:
