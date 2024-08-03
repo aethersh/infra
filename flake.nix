@@ -65,6 +65,11 @@
           system = "x86_64-linux";
           modules = [ ./hosts/strudel ];
         };
+
+        tulip = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/tulip ];
+        };
       };
 
       deploy = {
@@ -92,6 +97,11 @@
           strudel = {
             hostname = "strudel.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.strudel;
+          };
+
+          tulip = {
+            hostname = "tulip.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.tulip;
           };
         };
       };
