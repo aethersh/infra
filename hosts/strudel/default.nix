@@ -7,7 +7,6 @@
     ../../modules/blocky.nix
     ../../modules/chrony.nix
     ../../modules/globalping.nix
-    ../../modules/motd.nix
     ../../modules/pathvector.nix
 
     ./hardware-configuration.nix
@@ -59,7 +58,7 @@
         ipv4.addresses = [
           {
             address = "185.1.166.58";
-            prefixLength = 24;
+            prefixLength = 23;
           }
         ];
         ipv6.addresses = [
