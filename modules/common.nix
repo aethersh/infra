@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
 
 {
+  imports = [
+    ./prometheus.nix
+  ];
+
   nix = {
     package = pkgs.nixFlakes;
 
