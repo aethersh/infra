@@ -64,6 +64,12 @@
   # See options.pathvector in modules/pathvector.nix
   pathvector.configFile = ./pathvector.yml;
 
+  # See options.metrics in modules/prometheus.nix
+  metrics.node.enable = true;
+  metrics.node.openFirewall = true;
+  metrics.bird.enable = true;
+  metrics.bird.openFirewall = true;
+
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.05";
   # ======================== DO NOT CHANGE THIS ========================
