@@ -6,11 +6,7 @@ in
 {
   options.metrics = {
     node = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable the node exporter";
-      };
+      enable = lib.mkEnableOption { description = "Enable the node exporter"; };
       port = lib.mkOption {
         type = lib.types.int;
         default = 9100;
@@ -23,11 +19,7 @@ in
       };
     };
     bird = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable the bird exporter";
-      };
+      enable = lib.mkEnableOption { description = "Enable the bird exporter"; };
       port = lib.mkOption {
         type = lib.types.int;
         default = 9324;
@@ -42,14 +34,14 @@ in
   };
 
   config = {
-    services.prometheus.exporters.node = {
-      enable = cfg.metrics.node.enable;
+    services.prometheus.exporters.node = lib.mkIf cfg.metrics.node.enable {
+      enable = true;
       port = cfg.metrics.node.port;
       openFirewall = cfg.metrics.node.openFirewall;
     };
 
-    services.prometheus.exporters.bird = {
-      enable = cfg.metrics.bird.enable;
+    services.prometheus.exporters.bird = lib.mkIf cfg.metrics.bird.enable {
+      enable = true;
       port = cfg.metrics.bird.port;
       openFirewall = cfg.metrics.bird.openFirewall;
       birdVersion = 2;
