@@ -41,20 +41,18 @@ in
     };
   };
 
-  config =
-    lib.mkIf cfg.metrics.node.enable {
-      services.prometheus.exporters.node = {
-        enable = true;
-        port = cfg.metrics.node.port;
-        openFirewall = cfg.metrics.node.openFirewall;
-      };
-    }
-    // lib.mkIf cfg.metrics.bird.enable {
-      services.prometheus.exporters.bird = {
-        enable = true;
-        port = cfg.metrics.bird.port;
-        openFirewall = cfg.metrics.bird.openFirewall;
-        birdVersion = 2;
-      };
+  config = {
+    services.prometheus.exporters.node = {
+      enable = cfg.metrics.node.enable;
+      port = cfg.metrics.node.port;
+      openFirewall = cfg.metrics.node.openFirewall;
     };
+
+    services.prometheus.exporters.bird = {
+      enable = cfg.metrics.bird.enable;
+      port = cfg.metrics.bird.port;
+      openFirewall = cfg.metrics.bird.openFirewall;
+      birdVersion = 2;
+    };
+  };
 }
