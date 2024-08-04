@@ -3,6 +3,7 @@
 {
   imports = [
     ./prometheus.nix
+    ./motd.nix
   ];
 
   nix = {

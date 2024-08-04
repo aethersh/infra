@@ -79,6 +79,11 @@
         sshUser = "admin";
 
         nodes = {
+          # pete = {
+          #   hostname = "pete.as215207.net";
+          #   profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pete;
+          # };
+
           maple = {
             hostname = "maple.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.maple;

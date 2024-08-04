@@ -12,42 +12,26 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   networking = {
-    hostName = "tulip";
+    hostName = "pete";
 
     interfaces = {
-      # Servperso Systems
-      ens18 = {
+      ens3 = {
+        # Neptune Networks
         ipv4.addresses = [
           {
-            address = "194.28.98.92";
-            prefixLength = 27;
+            address = "172.82.22.167";
+            prefixLength = 26;
           }
         ];
         ipv6.addresses = [
           {
-            address = "2a0c:b640:8:92::1";
-            prefixLength = 48;
-          }
-        ];
-      };
-
-      # LOCIX Netherlands
-      ens19 = {
-        ipv4.addresses = [
-          {
-            address = "185.1.138.49";
-            prefixLength = 24;
-          }
-        ];
-        ipv6.addresses = [
-          {
-            address = "2a0c:b641:700::a5:21:5207:1";
+            address = "2602:fe2e:4:8e:5c:52ff:fe90:c106";
             prefixLength = 64;
           }
         ];
@@ -55,16 +39,16 @@
     };
 
     defaultGateway = {
-      address = "194.28.98.94";
-      interface = "ens18";
+      address = "172.82.22.129";
+      interface = "ens3";
     };
     defaultGateway6 = {
-      address = "2a0c:b640:8::ffff";
-      interface = "ens18";
+      address = "fe80::216:3eff:fe71:5ecb";
+      interface = "ens3";
     };
   };
 
-  motd.location = "meppel, nl";
+  motd.location = "new york, ny";
 
   # See options.pathvector in modules/pathvector.nix
   pathvector.configFile = ./pathvector.yml;
