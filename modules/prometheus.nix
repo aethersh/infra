@@ -53,7 +53,7 @@ in
         openFirewall = cfg.metrics.node.openFirewall;
       };
     }
-    ++ lib.mkIf cfg.metrics.bird.enable {
+    // lib.mkIf cfg.metrics.bird.enable {
       services.prometheus.exporters.bird = {
         enable = true;
         port = cfg.metrics.bird.port;
