@@ -59,6 +59,11 @@
   };
 
   motd.location = "toronto, on";
+  
+  metrics.node.enable = true;
+  metrics.node.openFirewall = true;
+  metrics.bird.enable = true;
+  metrics.bird.openFirewall = true;
 
   # See options.pathvector in modules/pathvector.nix
   pathvector.configFile = ./pathvector.yml;
