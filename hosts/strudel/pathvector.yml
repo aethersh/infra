@@ -9,32 +9,32 @@ prefixes:
 templates:
   upstream:
     allow-local-as: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 80
     import-limit4: 1500000
     import-limit6: 500000
-    add-on-import: [ "215207:0:12" ]
+    add-on-import: ["215207:0:12"]
 
   routeserver:
     filter-transit-asns: true
     auto-import-limits: true
     enforce-peer-nexthop: false
     enforce-first-as: false
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 90
-    add-on-import: [ "215207:0:13" ]
+    add-on-import: ["215207:0:13"]
 
   peer:
     filter-irr: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 100
-    add-on-import: [ "215207:0:14" ]
+    add-on-import: ["215207:0:14"]
 
   downstream:
     filter-irr: true
@@ -42,10 +42,10 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 200
-    add-on-import: [ "215207:0:15" ]
+    add-on-import: ["215207:0:15"]
 
 peers:
   ServPerso Systems:
@@ -53,7 +53,7 @@ peers:
     template: upstream
     neighbors:
       - 2a0c:b640:10::ffff
-  
+
   Pixinko:
     asn: 210233
     template: upstream
@@ -80,10 +80,17 @@ peers:
       - 2001:7f8:f2:e1::dead:1
       - 2001:7f8:f2:e1::be5a
 
+  Macarne: # Peering via LOCIX Frankfurt
+    asn: 64289
+    template: peer
+    neighbors:
+      - 185.1.166.102
+      - 2001:7f8:f2:e1:0:6:4289:1
+
   AS112:
     asn: 112
     local-pref: 110
-    add-on-import: [ "215207:0:112" ]
+    add-on-import: ["215207:0:112"]
     neighbors:
       - 185.1.155.112
       - 185.1.166.112
