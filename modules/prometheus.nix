@@ -34,13 +34,13 @@ in
   };
 
   config = {
-    services.prometheus.exporters.node = lib.mkIf cfg.metrics.node.enable {
+    services.prometheus.exporters.node = lib.mkIf cfg.node.enable {
       enable = true;
       port = cfg.metrics.node.port;
       openFirewall = cfg.metrics.node.openFirewall;
     };
 
-    services.prometheus.exporters.bird = lib.mkIf cfg.metrics.bird.enable {
+    services.prometheus.exporters.bird = lib.mkIf cfg.bird.enable {
       enable = true;
       port = cfg.metrics.bird.port;
       openFirewall = cfg.metrics.bird.openFirewall;
