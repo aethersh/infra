@@ -38,7 +38,6 @@
             "2620:fe::fe:10"
           ];
         }
-        
       ];
       caching.prefetching = true;
     };
