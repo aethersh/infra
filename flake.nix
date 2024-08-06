@@ -31,10 +31,10 @@
     in
     {
       nixosConfigurations = {
-        # pete = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/pete ];
-        # };
+        pete = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/pete ];
+        };
 
         maple = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -79,10 +79,10 @@
         sshUser = "admin";
 
         nodes = {
-          # pete = {
-          #   hostname = "pete.as215207.net";
-          #   profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pete;
-          # };
+          pete = {
+            hostname = "pete.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pete;
+          };
 
           maple = {
             hostname = "maple.as215207.net";

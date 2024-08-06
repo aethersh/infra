@@ -32,7 +32,7 @@
         ipv6.addresses = [
           {
             address = "2602:fe2e:4:8e:5c:52ff:fe90:c106";
-            prefixLength = 64;
+            prefixLength = 48;
           }
         ];
       };
