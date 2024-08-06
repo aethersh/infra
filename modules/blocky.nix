@@ -29,6 +29,15 @@
             "2001:470:20::2"
           ];
         }
+        {
+          upstream = "https://dns10.quad9.net/dns-query";
+          ips = [
+            "9.9.9.10"
+            "149.112.112.10"
+            "2620:fe::10"
+            "2620:fe::fe:10"
+          ];
+        }
       ];
       caching.prefetching = true;
     };
