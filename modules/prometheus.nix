@@ -36,14 +36,14 @@ in
   config = {
     services.prometheus.exporters.node = lib.mkIf cfg.node.enable {
       enable = true;
-      port = cfg.metrics.node.port;
-      openFirewall = cfg.metrics.node.openFirewall;
+      port = cfg.node.port;
+      openFirewall = cfg.node.openFirewall;
     };
 
     services.prometheus.exporters.bird = lib.mkIf cfg.bird.enable {
       enable = true;
-      port = cfg.metrics.bird.port;
-      openFirewall = cfg.metrics.bird.openFirewall;
+      port = cfg.bird.port;
+      openFirewall = cfg.bird.openFirewall;
       birdVersion = 2;
     };
   };
