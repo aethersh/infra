@@ -70,6 +70,7 @@
     iperf3
     neofetch
     pciutils
+    btop
   ];
 
   security.sudo.wheelNeedsPassword = false;
