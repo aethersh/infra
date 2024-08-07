@@ -14,11 +14,15 @@ let
   ];
 in
 {
-  options.pathvector = {
-    configFile = lib.mkOption {
-      type = with lib.types; path;
+  options.pathvector = with lib; {
+    configFile = mkOption {
+      type = types.path;
       default = ./pathvector.yml;
       description = "Pathvector configuration file";
+    };
+    enableAutoreload = mkEnableOption {
+      default = true;
+      description = "Enable autoreload of pathvector";
     };
   };
 
@@ -48,6 +52,12 @@ in
         description = "BIRD Internet Routing Daemon";
         wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."bird/bird.conf".source ];
+        # requires = [ "network.target" "blocky.service" ];
+        path = with pkgs; [
+          bird
+          pathvector
+          bgpq4
+        ];
         serviceConfig = {
           Type = "forking";
           Restart = "on-failure";
@@ -70,11 +80,14 @@ in
         };
       };
 
-      pathvector = {
+      pathvector = lib.mkIf cfg.enableAutoreload {
         description = "Run pathvector and regenerate daily";
         wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
-        requires = [ "bird.service" ];
+        requires = [
+          "bird.service"
+          "blocky.service"
+        ];
         path = with pkgs; [ bgpq4 ];
         serviceConfig = {
           Type = "forking";
