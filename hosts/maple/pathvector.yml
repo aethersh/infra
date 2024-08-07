@@ -9,32 +9,32 @@ prefixes:
 templates:
   upstream:
     allow-local-as: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 80
     import-limit4: 1500000
     import-limit6: 500000
-    add-on-import: [ "215207:0:12" ]
+    add-on-import: ["215207:0:12"]
 
   routeserver:
     filter-transit-asns: true
     auto-import-limits: true
     enforce-peer-nexthop: false
     enforce-first-as: false
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 90
-    add-on-import: [ "215207:0:13" ]
+    add-on-import: ["215207:0:13"]
 
   peer:
     filter-irr: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 100
-    add-on-import: [ "215207:0:14" ]
+    add-on-import: ["215207:0:14"]
 
   downstream:
     filter-irr: true
@@ -42,10 +42,10 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: [ "215207:0:15" ]
+    announce: ["215207:0:15"]
     remove-all-communities: 215207
     local-pref: 200
-    add-on-import: [ "215207:0:15" ]
+    add-on-import: ["215207:0:15"]
 
 peers:
   Paradox Networks:
@@ -66,12 +66,13 @@ peers:
     asn: 6939
     template: upstream
     prepends: 1
+    auto-as-set: false # HE has weird thing on PDB that makes PV freak out
     neighbors:
       - 2001:504:125:e1::3
 
   AS112:
     asn: 112
     local-pref: 110
-    add-on-import: [ "215207:0:112" ]
+    add-on-import: ["215207:0:112"]
     neighbors:
       - 2001:504:125:e1::112

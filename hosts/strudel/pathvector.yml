@@ -90,6 +90,7 @@ peers:
   Hurricane Electric: # Peering via LOCIX Frankfurt
     asn: 6939
     template: peer
+    auto-as-set: false # HE has weird thing on PDB that makes PV freak out
     neighbors:
       - 185.1.167.69
       - 2001:7f8:f2:e1::6939:1
