@@ -90,10 +90,11 @@ in
         ];
         path = with pkgs; [ bgpq4 ];
         serviceConfig = {
-          Type = "forking";
+          Type = "simple"; # PV stays attached to console while it generates, so simple is the correct service type
           ExecStart = "${pkgs.pathvector}/bin/pathvector generate";
           ExecReload = "${pkgs.pathvector}/bin/pathvector generate";
           RuntimeDirectory = "pathvector";
+          TimeoutStartSec = 120; # Two minute delay to ensure it doesn't time out
         };
         startAt = "daily";
         preStart = "/usr/bin/env sleep 2"; # Blocky takes a second to start, pathvector fails if it can't resolve dns RIGHT NOW !!
