@@ -90,6 +90,7 @@ peers:
   Hurricane Electric: # Peering via LOCIX Frankfurt
     asn: 6939
     template: upstream
+    prepends: 1
     neighbors:
       - 185.1.167.69
       - 2001:7f8:f2:e1::6939:1
