@@ -91,7 +91,8 @@ peers:
     asn: 6939
     template: peer
     auto-as-set: false # HE has weird thing on PDB that makes PV freak out
-    as-set: RADB::AS-HURRICANEV6 # Set as-set explicity bc /\ and also we only v6 peer so we dont need v4
+    # as-set: RADB::AS-HURRICANEV6 # Set as-set explicity bc /\ and also we only v6 peer so we dont need v4
+    filter-irr: false
     neighbors:
       - 185.1.167.69
       - 2001:7f8:f2:e1::6939:1
