@@ -42,6 +42,8 @@
   };
 
   services = {
+    iperf3.enable = true;
+
     openssh = {
       enable = true;
       settings = {
@@ -67,10 +69,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    iperf3
-    neofetch
-    pciutils
     btop
+    ldns # drill
+    neofetch
+    wget
   ];
 
   security.sudo.wheelNeedsPassword = false;
