@@ -6,8 +6,10 @@ prefixes:
   - 2602:fbcf:d0::/44
   - 2a0f:85c1:3aa::/48
 
-add-on-export: ["215207:140:276"]
-add-on-import: ["215207:140:276"]
+# Due to the VPS being located in Dusseldorf but also connected to LOCIX Frankfurt, there are no default communities set here.
+# The communities spec in the root of this repo differentiates between Dusseldorf and Frankfurt.
+# Location Communities are attached explicitly on peers.
+
 local-communities: ["215207:0:100"]
 
 templates:
@@ -55,22 +57,22 @@ peers:
   ServPerso Systems:
     asn: 34872
     template: upstream
-    add-on-import: ["217207:120:34872"]
+    add-on-import: ["217207:120:34872", "215207:140:1276"]
     neighbors:
       - 2a0c:b640:10::ffff
 
   Pixinko:
     asn: 210233
     template: upstream
-    add-on-import: ["217207:120:210233"]
+    add-on-import: ["217207:120:210233", "215207:140:1276"]
     neighbors:
       - 2a0c:b641:870::ffff
 
   LOCIX Dusseldorf Route Servers:
     asn: 202409
     template: routeserver
-    add-on-import: ["215207:160:202409"]
-    add-on-export: ["215207:160:202409"]
+    add-on-import: ["215207:160:202409", "215207:140:1276"]
+    add-on-export: ["215207:160:202409", "215207:140:1276"]
     neighbors:
       - 185.1.155.254
       - 185.1.155.253
@@ -80,8 +82,8 @@ peers:
   LOCIX Frankfurt Route Servers:
     asn: 202409
     template: routeserver
-    add-on-import: ["215207:160:202409"]
-    add-on-export: ["215207:160:202409"]
+    add-on-import: ["215207:160:202409", "215207:140:5276"]
+    add-on-export: ["215207:160:202409", "215207:140:5276"]
     neighbors:
       - 185.1.166.100
       - 185.1.166.200
@@ -93,7 +95,8 @@ peers:
   Macarne: # Peering via LOCIX Frankfurt
     asn: 64289
     template: peer
-    add-on-import: ["215207:120:64289"]
+    add-on-import: ["215207:120:64289", "215207:140:5276"]
+    add-on-export: ["215207:140:5276"]
     neighbors:
       - 185.1.166.102
       - 2001:7f8:f2:e1:0:6:4289:1
@@ -102,7 +105,8 @@ peers:
     asn: 6939
     template: upstream
     prepends: 1
-    add-on-import: ["215207:120:6939"]
+    add-on-import: ["215207:120:6939", "215207:140:5276"]
+    add-on-export: ["215207:140:5276"]
     neighbors:
       - 185.1.167.69
       - 2001:7f8:f2:e1::6939:1
