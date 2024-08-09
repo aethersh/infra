@@ -95,6 +95,7 @@ peers:
   Macarne: # Peering via LOCIX Frankfurt
     asn: 64289
     template: peer
+    filter-irr: false # PV fails while trying to resolve some IRR stuff
     add-on-import: ["215207:120:64289", "215207:140:5276"]
     add-on-export: ["215207:140:5276"]
     neighbors:
