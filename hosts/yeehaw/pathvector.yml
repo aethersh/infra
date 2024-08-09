@@ -1,0 +1,75 @@
+asn: 215207
+router-id: 23.150.41.166
+source4: 23.150.41.166
+source6: 2602:02b7:40:65::166
+prefixes:
+  - 2602:fbcf:d0::/44
+  - 2a0f:85c1:3aa::/48
+
+add-on-export: ["215207:140:34840"]
+add-on-import: ["215207:140:34840"]
+local-communities: ["215207:0:100"]
+
+templates:
+  upstream:
+    allow-local-as: true
+    announce: ["215207:100:200"]
+    remove-all-communities: 215207
+    local-pref: 80
+    import-limit4: 1500000
+    import-limit6: 500000
+    add-on-import: ["215207:100:80"]
+
+  routeserver:
+    filter-transit-asns: true
+    auto-import-limits: true
+    enforce-peer-nexthop: false
+    enforce-first-as: false
+    announce: ["215207:100:200"]
+    remove-all-communities: 215207
+    local-pref: 90
+    add-on-import: ["215207:100:90"]
+
+  peer:
+    filter-irr: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: ["215207:100:200"]
+    remove-all-communities: 215207
+    local-pref: 100
+    add-on-import: ["215207:100:100"]
+
+  downstream:
+    filter-irr: true
+    allow-blackhole-community: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: ["215207:100:200"]
+    remove-all-communities: 215207
+    local-pref: 200
+    add-on-import: ["215207:100:200"]
+
+peers:
+  F4 Networks:
+    asn: 21738
+    template: upstream
+    add-on-import: ["215207:120:21738"]
+    multihop: true
+    #              \/ transit (6939, 1299) \/  \/fuck cogent\/ \/ IXPs (KCIX, DECIX NY)  \/
+    #    add-on-export: ["21738:221", "21738:241",     "21738:239",    "21738:311", "21738:351"  ]
+    enforce-peer-nexthop: false # F4 uses a BGP route reflector, so this is required
+    neighbors:
+      - 23.150.40.3
+      - 2602:2b7:40:1::3
+      - 23.150.40.4
+      - 2602:2b7:40:1::4
+  F4IX Route Servers:
+    asn: 36090
+    template: routeserver
+    add-on-import: ["215207:160:36090"]
+    add-on-export: ["215207:160:36090"]
+    neighbors:
+      - 2602:fa3d:f4:1::1
+      - 2602:fa3d:f4:1::2
