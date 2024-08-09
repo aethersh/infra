@@ -6,35 +6,39 @@ prefixes:
   - 2602:fbcf:d0::/44
   - 2a0f:85c1:3aa::/48
 
+add-on-export: ["215207:140:276"]
+add-on-import: ["215207:140:276"]
+local-communities: ["215207:0:100"]
+
 templates:
   upstream:
     allow-local-as: true
-    announce: ["215207:0:15"]
+    announce: ["215207:100:200"]
     remove-all-communities: 215207
     local-pref: 80
     import-limit4: 1500000
     import-limit6: 500000
-    add-on-import: ["215207:0:12"]
+    add-on-import: ["215207:100:80"]
 
   routeserver:
     filter-transit-asns: true
     auto-import-limits: true
     enforce-peer-nexthop: false
     enforce-first-as: false
-    announce: ["215207:0:15"]
+    announce: ["215207:100:200"]
     remove-all-communities: 215207
     local-pref: 90
-    add-on-import: ["215207:0:13"]
+    add-on-import: ["215207:100:90"]
 
   peer:
     filter-irr: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: ["215207:0:15"]
+    announce: ["215207:100:200"]
     remove-all-communities: 215207
     local-pref: 100
-    add-on-import: ["215207:0:14"]
+    add-on-import: ["215207:100:100"]
 
   downstream:
     filter-irr: true
@@ -42,27 +46,31 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
-    announce: ["215207:0:15"]
+    announce: ["215207:100:200"]
     remove-all-communities: 215207
     local-pref: 200
-    add-on-import: ["215207:0:15"]
+    add-on-import: ["215207:100:200"]
 
 peers:
   ServPerso Systems:
     asn: 34872
     template: upstream
+    add-on-import: ["217207:120:34872"]
     neighbors:
       - 2a0c:b640:10::ffff
 
   Pixinko:
     asn: 210233
     template: upstream
+    add-on-import: ["217207:120:210233"]
     neighbors:
       - 2a0c:b641:870::ffff
 
   LOCIX Dusseldorf Route Servers:
     asn: 202409
     template: routeserver
+    add-on-import: ["215207:160:202409"]
+    add-on-export: ["215207:160:202409"]
     neighbors:
       - 185.1.155.254
       - 185.1.155.253
@@ -72,6 +80,8 @@ peers:
   LOCIX Frankfurt Route Servers:
     asn: 202409
     template: routeserver
+    add-on-import: ["215207:160:202409"]
+    add-on-export: ["215207:160:202409"]
     neighbors:
       - 185.1.166.100
       - 185.1.166.200
@@ -83,6 +93,7 @@ peers:
   Macarne: # Peering via LOCIX Frankfurt
     asn: 64289
     template: peer
+    add-on-import: ["215207:120:64289"]
     neighbors:
       - 185.1.166.102
       - 2001:7f8:f2:e1:0:6:4289:1
@@ -91,6 +102,7 @@ peers:
     asn: 6939
     template: upstream
     prepends: 1
+    add-on-import: ["215207:120:6939"]
     neighbors:
       - 185.1.167.69
       - 2001:7f8:f2:e1::6939:1
@@ -98,7 +110,7 @@ peers:
   AS112:
     asn: 112
     local-pref: 110
-    add-on-import: ["215207:0:112"]
+    add-on-import: ["215207:120:112"]
     neighbors:
       - 185.1.155.112
       - 185.1.166.112

@@ -7,6 +7,7 @@ prefixes:
   - 2a0f:85c1:3aa::/48
 
 add-on-export: ["215207:140:10840"]
+add-on-import: ["215207:140:10840"]
 local-communities: ["215207:0:100"]
 
 templates:
@@ -54,6 +55,7 @@ peers:
   Paradox Networks:
     asn: 52025
     template: upstream
+    add-on-import: ["215207:120:52025"]
     neighbors:
       - 192.67.33.1
       - 2602:fa7e:14::1
@@ -61,6 +63,8 @@ peers:
   NVIX Route Servers:
     asn: 62768
     template: routeserver
+    add-on-import: ["215207:160:62768"]
+    add-on-export: ["215207:160:62768"]
     neighbors:
       - 2001:504:125:e2::1
       - 2001:504:125:e2::2

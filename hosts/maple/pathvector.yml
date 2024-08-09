@@ -7,7 +7,7 @@ prefixes:
   - 2a0f:85c1:3aa::/48
 
 add-on-export: ["215207:140:4124"]
-
+add-on-import: ["215207:140:4124"]
 local-communities: ["215207:0:100"]
 
 templates:
@@ -55,6 +55,7 @@ peers:
   Paradox Networks:
     asn: 52025
     template: upstream
+    add-on-import: ["215207:120:52025"]
     neighbors:
       - 23.154.9.1
       - 2602:fa7e:10::1
@@ -62,6 +63,8 @@ peers:
   ONIX Route Servers:
     asn: 57369
     template: routeserver
+    add-on-import: ["215207:160:57369"]
+    add-on-export: ["215207:160:57369"]
     neighbors:
       - 2001:504:125:e1::1
       - 2001:504:125:e1::2
@@ -70,6 +73,7 @@ peers:
     asn: 6939
     template: upstream
     prepends: 1
+    add-on-import: ["215207:120:6939"]
     neighbors:
       - 2001:504:125:e1::3
 
