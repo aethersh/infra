@@ -98,7 +98,6 @@ peers:
     add-on-import: ["215207:120:64289", "215207:140:5276"]
     add-on-export: ["215207:140:5276"]
     neighbors:
-      - 185.1.166.102
       - 2001:7f8:f2:e1:0:6:4289:1
 
   Hurricane Electric: # Peering via LOCIX Frankfurt
