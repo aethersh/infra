@@ -90,7 +90,7 @@ in
         ];
         path = with pkgs; [ bgpq4 ];
         serviceConfig = {
-          Type = "simple"; # PV stays attached to console while it generates, so simple is the correct service type
+          Type = "forking"; # PV stays attached to console while it generates; Type="forking" means it will fail if pathvector fails
           ExecStart = "${pkgs.pathvector}/bin/pathvector generate -v";
           ExecReload = "${pkgs.pathvector}/bin/pathvector generate -v";
           RuntimeDirectory = "pathvector";
