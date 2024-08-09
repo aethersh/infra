@@ -91,8 +91,8 @@ in
         path = with pkgs; [ bgpq4 ];
         serviceConfig = {
           Type = "simple"; # PV stays attached to console while it generates, so simple is the correct service type
-          ExecStart = "${pkgs.pathvector}/bin/pathvector generate";
-          ExecReload = "${pkgs.pathvector}/bin/pathvector generate";
+          ExecStart = "${pkgs.pathvector}/bin/pathvector generate -v";
+          ExecReload = "${pkgs.pathvector}/bin/pathvector generate -v";
           RuntimeDirectory = "pathvector";
           TimeoutStartSec = 120; # Two minute delay to ensure it doesn't time out
         };
