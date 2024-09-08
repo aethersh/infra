@@ -39,6 +39,11 @@
     networkmanager.enable = false;
     useDHCP = false;
     tempAddresses = "disabled";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22 51820 ];
+      allowedUDPPorts = [ 51820 ];
+    };
   };
 
   services = {
@@ -74,6 +79,7 @@
     neofetch
     wget
     inetutils
+    wireguard-tools
   ];
 
   security.sudo.wheelNeedsPassword = false;
