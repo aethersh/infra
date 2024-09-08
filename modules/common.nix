@@ -73,6 +73,7 @@
     ldns # drill
     neofetch
     wget
+    inetutils
   ];
 
   security.sudo.wheelNeedsPassword = false;

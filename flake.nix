@@ -70,6 +70,11 @@
           system = "x86_64-linux";
           modules = [ ./hosts/tulip ];
         };
+
+        falaise = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/falaise ];
+        };
       };
 
       deploy = {
@@ -107,6 +112,11 @@
           tulip = {
             hostname = "tulip.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.tulip;
+          };
+
+          falaise = {
+            hostname = "falaise.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.falaise;
           };
         };
       };
