@@ -4,6 +4,10 @@
   imports = [
     ./prometheus.nix
     ./motd.nix
+    ./pathvector.nix
+    ./blocky.nix
+    ./chrony.nix
+    ./globalping.nix
   ];
 
   nix = {

@@ -4,11 +4,6 @@
   imports = [
     ../../modules/common.nix
 
-    ../../modules/blocky.nix
-    ../../modules/chrony.nix
-    ../../modules/globalping.nix
-    ../../modules/pathvector.nix
-
     ./hardware-configuration.nix
   ];
 

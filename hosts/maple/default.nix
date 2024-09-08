@@ -60,9 +60,9 @@
 
   motd.location = "toronto, on";
 
-  metrics.node.enable = false;
+  metrics.node.enable = true;
   metrics.node.openFirewall = true;
-  metrics.bird.enable = false;
+  metrics.bird.enable = true;
   metrics.bird.openFirewall = true;
 
   # See options.pathvector in modules/pathvector.nix
