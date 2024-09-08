@@ -66,7 +66,10 @@
   metrics.bird.openFirewall = true;
 
   # See options.pathvector in modules/pathvector.nix
-  pathvector.configFile = ./pathvector.yml;
+  services.pathvector = {
+    enable = true;
+    configFile = ./pathvector.yml;
+  };
 
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.05";

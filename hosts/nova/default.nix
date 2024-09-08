@@ -61,7 +61,10 @@
   motd.location = "ashburn, va";
 
   # See options.pathvector in modules/pathvector.nix
-  pathvector.configFile = ./pathvector.yml;
+  services.pathvector={
+    enable = true;
+    configFile = ./pathvector.yml;
+  };
 
   # See options.metrics in modules/prometheus.nix
   # metrics.node.enable = true;

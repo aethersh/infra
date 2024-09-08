@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.pathvector;
+  cfg = config.services.pathvector;
   caps = [
     "CAP_NET_ADMIN"
     "CAP_NET_BIND_SERVICE"
@@ -14,7 +14,11 @@ let
   ];
 in
 {
-  options.pathvector = with lib; {
+  options.services.pathvector = with lib; {
+    enable = mkEnableOption {
+      default = false;
+      description = "Enable pathvector";
+    };
     configFile = mkOption {
       type = types.path;
       default = ./pathvector.yml;
@@ -26,7 +30,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       bgpq4
       bird
