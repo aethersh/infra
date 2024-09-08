@@ -39,7 +39,6 @@ in
       port = cfg.node.port;
       openFirewall = cfg.node.openFirewall;
     };
-
     services.prometheus.exporters.bird = lib.mkIf cfg.bird.enable {
       enable = true;
       port = cfg.bird.port;
