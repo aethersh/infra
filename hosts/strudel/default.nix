@@ -93,7 +93,7 @@
   motd.location = "düsseldorf, de";
 
   # See options.pathvector in modules/pathvector.nix
-services.pathvector={
+  services.pathvector = {
     enable = true;
     configFile = ./pathvector.yml;
   };
