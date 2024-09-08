@@ -20,9 +20,17 @@ let
   strudel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNv4kECzICnM9thkHa5X7R9tqgjrsacXJS0LWqUdKKC";
   tulip = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHBs7AtmcMc0uTJxGXAllWTcD3c79bePDgzo4sLMi+gP";
 
-  systems = [ bay pete nova falaise maple strudel tulip ];
+  systems = [
+    bay
+    pete
+    nova
+    falaise
+    maple
+    strudel
+    tulip
+  ];
 in
-{ 
-# Reference age files here
+{
+  # Reference age files here
 
 }

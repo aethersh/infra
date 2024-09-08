@@ -45,7 +45,10 @@
     tempAddresses = "disabled";
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 51820 ];
+      allowedTCPPorts = [
+        22
+        51820
+      ];
       allowedUDPPorts = [ 51820 ];
     };
   };
