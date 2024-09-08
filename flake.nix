@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     deploy-rs.url = "github:serokell/deploy-rs";
+    agenix.url = "github:yaxitech/ragenix";
   };
 
   outputs =
@@ -11,6 +12,7 @@
       self,
       nixpkgs,
       deploy-rs,
+      agenix,
       ...
     }:
     let
@@ -33,17 +35,26 @@
       nixosConfigurations = {
         pete = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/pete ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/pete
+          ];
         };
 
         maple = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/maple ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/maple
+          ];
         };
 
         bay = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/bay ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/bay
+          ];
         };
 
         # zurich = nixpkgs.lib.nixosSystem {
@@ -58,22 +69,34 @@
 
         nova = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/nova ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/nova
+          ];
         };
 
         strudel = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/strudel ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/strudel
+          ];
         };
 
         tulip = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/tulip ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/tulip
+          ];
         };
 
         falaise = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/falaise ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/falaise
+          ];
         };
       };
 
