@@ -46,8 +46,11 @@ in
         enable = true;
         port = cfg.bird.port;
         user = "bird";
+        group = "bird";
         openFirewall = cfg.bird.openFirewall;
         birdVersion = 2;
       };
+
+      users.groups.bird2 = {};
     };
 }
