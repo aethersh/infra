@@ -45,12 +45,13 @@ in
       services.prometheus.exporters.bird = {
         enable = true;
         port = cfg.bird.port;
-        user = "bird";
+        user = "bird"; # Running it as bird user makes perms easier to deal with since we have a custom systemd service for bird
         group = "bird";
         openFirewall = cfg.bird.openFirewall;
         birdVersion = 2;
       };
 
-      users.groups.bird2 = {};
+      # Weird hack to prevent issues when starting this service
+      users.groups.bird2 = { };
     };
 }
