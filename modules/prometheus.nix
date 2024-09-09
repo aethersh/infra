@@ -45,13 +45,9 @@ in
       services.prometheus.exporters.bird = {
         enable = true;
         port = cfg.bird.port;
+        user = "bird";
         openFirewall = cfg.bird.openFirewall;
         birdVersion = 2;
-      };
-
-      users.users.bird-exporter = {
-        isSystemUser = true;
-        extraGroups = [ "bird" ];
       };
     };
 }
