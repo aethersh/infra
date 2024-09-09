@@ -92,6 +92,11 @@
     enable = true;
     configFile = ./pathvector.yml;
   };
+
+  metrics.node.enable = true;
+  metrics.node.openFirewall = true;
+  metrics.bird.enable = true;
+  metrics.bird.openFirewall = true;
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.05";
   # ======================== DO NOT CHANGE THIS ========================
