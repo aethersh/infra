@@ -33,19 +33,25 @@ in
     };
   };
 
-  config = {
-    services.prometheus.exporters.node = lib.mkIf cfg.node.enable {
-      enable = true;
-      port = cfg.node.port;
-      openFirewall = cfg.node.openFirewall;
-    };
-    services.prometheus.exporters.bird = lib.mkIf cfg.bird.enable {
-      enable = true;
-      port = cfg.bird.port;
-      openFirewall = cfg.bird.openFirewall;
-      birdVersion = 2;
-    };
+  config =
+    lib.mkIf cfg.node.enable {
+      services.prometheus.exporters.node = {
+        enable = true;
+        port = cfg.node.port;
+        openFirewall = cfg.node.openFirewall;
+      };
+    }
+    // lib.mkIf cfg.bird.enable {
+      services.prometheus.exporters.bird = {
+        enable = true;
+        port = cfg.bird.port;
+        openFirewall = cfg.bird.openFirewall;
+        birdVersion = 2;
+      };
 
-    users.users.bird-exporter.extraGroups = lib.mkIf cfg.bird.enable [ "bird" ];
-  };
+      users.users.bird-exporter = {
+        isSystemUser = true;
+        extraGroups = [ "bird" ];
+      };
+    };
 }
