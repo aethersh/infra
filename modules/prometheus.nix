@@ -45,5 +45,7 @@ in
       openFirewall = cfg.bird.openFirewall;
       birdVersion = 2;
     };
+
+    users.users.bird-exporter.extraGroups = lib.mkIf cfg.bird.enable [ "bird" ];
   };
 }
