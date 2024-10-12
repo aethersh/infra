@@ -7,8 +7,8 @@ prefixes:
   - 2602:fbcf:d9:ca::/48
   - 2a0f:85c1:3aa::/48
 
-add-on-export: ["215207:140:528"]
-add-on-import: ["215207:140:528"]
+add-on-export: ["215207:140:5124"]
+add-on-import: ["215207:140:5124"]
 local-communities: ["215207:0:100"]
 
 templates:
@@ -56,7 +56,7 @@ peers:
   # Free Range Cloud:
   #   asn: 53356
   #   template: upstream
-  #   add-on-import: ["217207:120:53356"]
+  #   add-on-import: ["215207:120:53356"]
   #   neighbors:
   #     - 23.154.81.97
   #     - 2602:fed2:fb0::1
