@@ -4,7 +4,7 @@ source4: 23.154.81.115
 source6: 2602:fed2:fb0:68::1
 prefixes:
   - 2602:fbcf:df::/48
-  - 2602:fbcf:d9:ca::/48
+  - 2602:fbcf:d9::/48
   - 2a0f:85c1:3aa::/48
 
 add-on-export: ["215207:140:5124"]
