@@ -3,7 +3,8 @@ router-id: 192.67.33.7
 source4: 192.67.33.7
 source6: 2602:fa7e:14::6
 prefixes:
-  - 2602:fbcf:d0::/44
+  - 2602:fbcf:df::/48
+  - 2602:fbcf:dc::/48
   - 2a0f:85c1:3aa::/48
 
 add-on-export: ["215207:140:10840"]
