@@ -58,7 +58,6 @@ peers:
     template: upstream
     add-on-import: ["215207:120:52025"]
     neighbors:
-      - 23.154.9.1
       - 2602:fa7e:10::1
 
   ONIX Route Servers:

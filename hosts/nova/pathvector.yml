@@ -58,7 +58,6 @@ peers:
     template: upstream
     add-on-import: ["215207:120:52025"]
     neighbors:
-      - 192.67.33.1
       - 2602:fa7e:14::1
 
   NVIX Route Servers:

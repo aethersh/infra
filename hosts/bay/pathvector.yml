@@ -60,8 +60,6 @@ peers:
     enforce-peer-nexthop: false
     add-on-import: ["215207:120:52025"]
     neighbors:
-      - 23.154.8.2
-      - 23.154.8.3
       - 2602:fa7e:13:2::a
       - 2602:fa7e:13:3::a
 
