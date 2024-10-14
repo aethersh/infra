@@ -102,7 +102,6 @@ peers:
   Hurricane Electric: # Peering via LOCIX Frankfurt
     asn: 6939
     template: upstream
-    prepends: 1
     add-on-import: ["215207:120:6939", "215207:140:5276"]
     add-on-export: ["215207:140:5276"]
     neighbors:

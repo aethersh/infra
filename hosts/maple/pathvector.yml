@@ -72,7 +72,6 @@ peers:
   Hurricane Electric:
     asn: 6939
     template: upstream
-    prepends: 1
     add-on-import: ["215207:120:6939"]
     neighbors:
       - 2001:504:125:e1::3
