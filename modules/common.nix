@@ -101,6 +101,7 @@
     wget
     inetutils
     wireguard-tools
+    q
   ];
 
   security.sudo.wheelNeedsPassword = false;
