@@ -3,42 +3,43 @@
 {
   imports = [
     ../../modules/common.nix
-
     ./hardware-configuration.nix
   ];
 
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sda";
+    device = "nodev";
   };
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "strudel";
+    hostName = "yeehaw";
 
     interfaces = {
-      # Servperso Systems
+      # F4 Networks
       ens18 = {
         ipv4.addresses = [
-    {
-      address = "23.150.41.166";
-      prefixLength = 27;
-    }
-  ];
+          {
+            address = "23.150.41.166";
+            prefixLength = 27;
+          }
+        ];
         ipv6.addresses = [
-    {
-      address = "2602:02b7:40:65::166";
-      prefixLength = 64;
-    }
-  ];
-
-    defaultGateway = {
-    address = "23.150.41.161";
-    interface = "ens18";
-  };
-    defaultGateway6 = {
-    address = "2602:02b7:40:65::1";
-    interface = "ens18";
-  };
+          {
+            address = "2602:02b7:40:65::166";
+            prefixLength = 64;
+          }
+        ];
+      };
+      defaultGateway = {
+        address = "23.150.41.161";
+        interface = "ens18";
+      };
+      defaultGateway6 = {
+        address = "2602:02b7:40:65::1";
+        interface = "ens18";
+      };
+    };
   };
 
   motd.location = "kansas city, us";
