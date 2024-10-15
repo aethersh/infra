@@ -8,9 +8,8 @@
 
   boot.loader.grub = {
     enable = true;
-    device = "nodev";
+    device = "/dev/sda";
   };
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
     hostName = "yeehaw";
@@ -31,7 +30,11 @@
           }
         ];
       };
-      defaultGateway = {
+      ens19 = {
+        useDHCP = true;
+      };
+    };
+    defaultGateway = {
         address = "23.150.41.161";
         interface = "ens18";
       };
@@ -39,7 +42,6 @@
         address = "2602:02b7:40:65::1";
         interface = "ens18";
       };
-    };
   };
 
   motd.location = "kansas city, us";
@@ -55,6 +57,6 @@
   metrics.bird.enable = true;
   metrics.bird.openFirewall = true;
   # ======================== DO NOT CHANGE THIS ========================
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.05";
   # ======================== DO NOT CHANGE THIS ========================
 }
