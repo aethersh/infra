@@ -35,13 +35,13 @@
       };
     };
     defaultGateway = {
-        address = "23.150.41.161";
-        interface = "ens18";
-      };
-      defaultGateway6 = {
-        address = "2602:02b7:40:65::1";
-        interface = "ens18";
-      };
+      address = "23.150.41.161";
+      interface = "ens18";
+    };
+    defaultGateway6 = {
+      address = "2602:02b7:40:65::1";
+      interface = "ens18";
+    };
   };
 
   motd.location = "kansas city, us";
