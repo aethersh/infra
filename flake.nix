@@ -34,7 +34,7 @@
     {
       nixosConfigurations = {
         pete = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/pete
@@ -42,7 +42,7 @@
         };
 
         maple = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/maple
@@ -50,7 +50,7 @@
         };
 
         bay = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/bay
@@ -62,13 +62,13 @@
         #   modules = [ ./hosts/zurich ];
         # };
         #
-        # yeehaw = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/yeehaw ];
-        # };
+        yeehaw = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/yeehaw ];
+        };
 
         nova = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/nova
@@ -76,7 +76,7 @@
         };
 
         strudel = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/strudel
@@ -84,7 +84,7 @@
         };
 
         tulip = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/tulip
@@ -92,7 +92,7 @@
         };
 
         falaise = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             agenix.nixosModules.default
             ./hosts/falaise
@@ -140,6 +140,10 @@
           falaise = {
             hostname = "falaise.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.falaise;
+          };
+          yeehaw = {
+            hostname = "yeehaw.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.yeehaw;
           };
         };
       };
