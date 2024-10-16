@@ -30,10 +30,17 @@
           }
         ];
       };
+      # F4IX
       ens19 = {
-        useDHCP = true;
+        ipv6.addresses = [
+          {
+            address = "2602:fa3d:f4:1::bf";
+            prefixLength = 64;
+          }
+        ];
       };
     };
+
     defaultGateway = {
       address = "23.150.41.161";
       interface = "ens18";
