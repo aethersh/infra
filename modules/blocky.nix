@@ -42,4 +42,11 @@
       caching.prefetching = true;
     };
   };
+
+      systemd.services.blocky = {
+      description = "A DNS proxy and ad-blocker for the local network";
+      requires = [
+          "network-online.target"
+        ];
+    };
 }

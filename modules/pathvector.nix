@@ -56,7 +56,10 @@ in
         description = "BIRD Internet Routing Daemon";
         wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."bird/bird.conf".source ];
-        # requires = [ "network.target" "blocky.service" ];
+        requires = [
+          "network-online.target"
+          "blocky.service"
+        ];
         path = with pkgs; [
           bird
           pathvector
@@ -86,7 +89,6 @@ in
 
       pathvector = {
         description = "Run pathvector and regenerate daily";
-        wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
         requires = [
           "bird.service"
