@@ -29,6 +29,7 @@
         "nix-command"
         "flakes"
       ];
+      allowed-users = [ "admin" ];
       trusted-users = [ "admin" ];
     };
   };
