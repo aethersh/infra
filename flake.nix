@@ -122,10 +122,10 @@
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.bay;
           };
 
-          nova = {
-            hostname = "nova.as215207.net";
-            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
-          };
+          # nova = {
+          #   hostname = "nova.as215207.net";
+          #   profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nova;
+          # };
 
           strudel = {
             hostname = "strudel.as215207.net";

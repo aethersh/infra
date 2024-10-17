@@ -31,6 +31,22 @@
           }
         ];
       };
+
+      # Unmetered Exchange
+      ens19 = {
+        ipv4.addresses = [
+          {
+            address = "192.34.27.132";
+            prefixLength = 24;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "2602:ffb1:0200:0:192:34:27:132";
+            prefixLength = 48;
+          }
+        ];
+      };
     };
 
     defaultGateway = {

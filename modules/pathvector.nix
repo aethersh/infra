@@ -89,6 +89,7 @@ in
 
       pathvector = {
         description = "Run pathvector and regenerate daily";
+        wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
         requires = [
           "bird.service"
