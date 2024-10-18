@@ -53,10 +53,20 @@ templates:
     add-on-import: ["215207:100:200"]
 
 peers:
-  # Free Range Cloud:
-  #   asn: 53356
-  #   template: upstream
-  #   add-on-import: ["215207:120:53356"]
-  #   neighbors:
-  #     - 23.154.81.97
-  #     - 2602:fed2:fb0::1
+  Free Range Cloud:
+    asn: 53356
+    template: upstream
+    add-on-import: ["215207:120:53356"]
+    neighbors:
+      - 2602:fed2:fb0::1
+
+  Unmetered Exchange Route Servers:
+    asn: 65513
+    template: routeserver
+    auto-import-limits: false
+    add-on-import: ["215207:160:54133"] # Uses UNMETERED's ASN instead of RS's private ASN
+    neighbors:
+      - 192.34.27.253
+      - 192.34.27.254
+      - 2602:ffb1:200:0:192:34:27:253
+      - 2602:ffb1:200:0:192:34:27:254
