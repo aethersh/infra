@@ -107,6 +107,14 @@ peers:
     neighbors:
       - 2001:7f8:f2:e1::6939:1
 
+  Cloudflare:
+    asn: 13335
+    template: peer
+    add-on-import: ["215207:120:13335", "215207:140:5276"]
+    add-on-export: ["215207:140:5276"]
+    neighbors:
+      - 2001:7f8:f2:e1:0:1:3335:1
+
   AS112:
     asn: 112
     local-pref: 110
