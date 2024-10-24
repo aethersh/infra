@@ -10,6 +10,8 @@ prefixes:
 add-on-export: ["215207:140:5124"]
 add-on-import: ["215207:140:5124"]
 local-communities: ["215207:0:100"]
+irr-query-timeout: 120
+irr-server: whois.in.bell.ca
 
 templates:
   upstream:
