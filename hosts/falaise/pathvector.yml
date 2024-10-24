@@ -74,6 +74,9 @@ peers:
   Hurricane Electric:
     asn: 6939
     template: peer
+    add-on-import: ["215207:120:6939"]
+    as-set: RADB::AS-HURRICANEV6
+    auto-as-set: false
     neighbors:
       - 192.34.27.6
       - 2602:ffb1:200:0:192:34:27:6
