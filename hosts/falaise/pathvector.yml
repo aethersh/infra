@@ -75,7 +75,7 @@ peers:
 
   Hurricane Electric:
     asn: 6939
-    template: peer
+    template: upstream
     add-on-import: ["215207:120:6939"]
     as-set: RADB::AS-HURRICANEV6
     auto-as-set: false
