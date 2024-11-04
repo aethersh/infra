@@ -86,6 +86,9 @@ peers:
     add-on-import: ["215207:160:202409", "215207:140:5276"]
     add-on-export: ["215207:160:202409", "215207:140:5276"]
     neighbors:
+      - 185.1.166.100
+      - 185.1.166.200
+      - 185.1.166.254
       - 2001:7f8:f2:e1::babe:1
       - 2001:7f8:f2:e1::dead:1
       - 2001:7f8:f2:e1::be5a
@@ -115,6 +118,7 @@ peers:
     add-on-export: ["215207:140:5276"]
     filter-irr: false # PV fails while trying to resolve some IRR stuff for Cloudflare
     neighbors:
+      - 185.1.166.3
       - 2001:7f8:f2:e1:0:1:3335:1
 
   AS112:
