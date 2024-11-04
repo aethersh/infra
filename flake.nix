@@ -16,6 +16,17 @@
       ...
     }:
     let
+
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      forEachSupportedSystem =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
+
+
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       deployPkgs = import nixpkgs {
@@ -148,10 +159,8 @@
         };
       };
 
-      formatter = {
-        x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-        aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
-      };
+            formatter = forEachSupportedSystem ({ pkgs }: pkgs.nixfmt-rfc-style);
+
 
       # This is highly advised, and will prevent many possible mistakes
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
