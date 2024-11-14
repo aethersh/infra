@@ -47,4 +47,6 @@
     description = "A DNS proxy and ad-blocker for the local network";
     requires = [ "network-online.target" ];
   };
+
+  services.cron.systemCronJobs = ["0 0,12 * * * systemctl restart blocky.service"];
 }

@@ -106,6 +106,7 @@
   ];
 
   security.sudo.wheelNeedsPassword = false;
+  services.cron.enable = true;
 
   users.users.admin = {
     isNormalUser = true;
