@@ -53,7 +53,7 @@ in
 
     environment.shellAliases = {
       pv = "pathvector";
-    }
+    };
 
     systemd.services = {
       bird = {
