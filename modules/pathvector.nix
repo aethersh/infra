@@ -51,6 +51,10 @@ in
       mode = "0664";
     };
 
+    environment.shellAliases = {
+      pv = "pathvector";
+    }
+
     systemd.services = {
       bird = {
         description = "BIRD Internet Routing Daemon";
