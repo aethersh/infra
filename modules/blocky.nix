@@ -48,5 +48,5 @@
     requires = [ "network-online.target" ];
   };
 
-  services.cron.systemCronJobs = [ "0 0,12 * * * systemctl restart blocky.service" ];
+  services.cron.systemCronJobs = [ "0 0,12 * * * root systemctl restart blocky.service" ];
 }
