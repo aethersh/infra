@@ -28,6 +28,10 @@ in
       default = true;
       description = "Enable autoreload of pathvector";
     };
+    routerId = mkOption {
+      description = "Router ID for BIRD";
+      type = types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -50,10 +54,23 @@ in
       source = ./bird-default.conf;
       mode = "0664";
     };
+    # environment.etc."bird/bird.conf" = {
+    #   source = pkgs.writeTextFile {
+    #     name = "bird";
+    #     text =
+    #       ''
+    #         router id ${cfg.routerId};
+    #       ''
+    #       + builtins.readFile ./bird-default.conf;
+    #   };
+    #   mode = "0664";
+    # };
 
     environment.shellAliases = {
       pv = "pathvector";
     };
+
+    networking.firewall.allowedTCPPorts = [ 179 ];
 
     systemd.services = {
       bird = {
