@@ -1,10 +1,10 @@
 # This file need not be imported by anything, as it exists purely for agenix to figure shit out
 let
 
-  # --------- Henrik's Public Keys ---------
-  # Fetch public key from https://henrikvt.com/id_ed25519.pub
+  # --------- Administrator Public Keys ---------
+  # Fetch public keys from websites
   henrik_pubkey = builtins.readFile (builtins.fetchurl "https://henrikvt.com/id_ed25519.pub");
-  tibs_pubkey = builtins.readFile (builtins.fetchurl "https://tibinonest.me/tibs_ssh.pub");
+  tibs_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
 
   admins = [
     henrik_pubkey
@@ -31,6 +31,13 @@ let
   ];
 in
 {
-  # Reference age files here
 
+  # Machine private keys for WireGuard
+  "bayWgPrivkey.age".publicKeys = [ bay ] ++ admins;
+  "peteWgPrivkey.age".publicKeys = [ pete ] ++ admins;
+  # "novaWgPrivkey.age".publicKeys = [ nova ] ++ admins;
+  "falaiseWgPrivkey.age".publicKeys = [ falaise ] ++ admins;
+  "mapleWgPrivkey.age".publicKeys = [ maple ] ++ admins;
+  "strudelWgPrivkey.age".publicKeys = [ strudel ] ++ admins;
+  "tulipWgPrivkey.age".publicKeys = [ tulip ] ++ admins;
 }
