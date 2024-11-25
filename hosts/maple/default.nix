@@ -72,37 +72,37 @@
     {
       endpoint = "bay.as215207.net:51820";
       address = "172.31.0.6";
-      pubkey = builtins.readFile config.age.secrets.bayWgPubkey.path;
+      pubkey = "R6XggQejbqHF/l9rvgTJx5a/89Zw0Grd0pJ8OKwkXUE=";
     }
     {
       endpoint = "falaise.as215207.net:51820";
       address = "172.31.0.7";
-      pubkey = builtins.readFile config.age.secrets.falaiseWgPubkey.path;
+      pubkey = "F80L40pvu3N7pP9EXGS+SbP20NH6z+rHbcOHYBnQwg8=";
     }
     # {
     #   endpoint = "maple.as215207.net:51820";
     #   address = "172.31.0.8";
-    #   pubkey = builtins.readFile config.age.secrets.mapleWgPubkey.path;
+    #   pubkey = "FcSTiNO/GrPeTqfIcHrpOGQks324suM4QcdbGOM1igc=";
     # }
     {
       endpoint = "pete.as215207.net:51820";
       address = "172.31.0.9";
-      pubkey = builtins.readFile config.age.secrets.peteWgPubkey.path;
+      pubkey = "UI+GluPRk0biKO+JITUDgOy+4b2LOw7x7TbhML/lC1Q=";
     }
     {
       endpoint = "strudel.as215207.net:51820";
       address = "172.31.0.10";
-      pubkey = builtins.readFile config.age.secrets.strudelWgPubkey.path;
+      pubkey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
     }
     {
       endpoint = "tulip.as215207.net:51820";
       address = "172.31.0.11";
-      pubkey = builtins.readFile config.age.secrets.tulipWgPubkey.path;
+      pubkey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
     }
     {
       endpoint = "yeehaw.as215207.net:51820";
       address = "172.31.0.12";
-      pubkey = builtins.readFile config.age.secrets.yeehawWgPubkey.path;
+      pubkey = "BWvxchKyCm2LrXKkVFInjgGWqRVOTyUcKYDGcPpUdR4=";
     }
   ];
 
