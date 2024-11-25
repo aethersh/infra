@@ -16,21 +16,22 @@
 | `nova`    |                                                |
 | `strudel` | `Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=` |
 
-### IPv6 Subnets
+### IP Subnets
 
-**Base Subnet:** `2602:fbcf:dd::/48`
+**Base v4 Subnet:** `172.31.0.0/24`
+**Base v6 Subnet:** `2602:fbcf:dd::/48`
 
-| Machine            | Subnet                 |
-| ------------------ | ---------------------- |
-| `pete`             | `2602:fbcf:dd:d0::/64` |
-| _(VT) Not unused_  | `2602:fbcf:dd:d2::/64` |
-| `yeehaw`           | `2602:fbcf:dd:d4::/64` |
-| `bay`              | `2602:fbcf:dd:d5::/64` |
-| _(ON-QC) Not used_ | `2602:fbcf:dd:d6::/64` |
-| _(QC) Not used_    | `2602:fbcf:dd:d7::/64` |
-| `maple`            | `2602:fbcf:dd:d8::/64` |
-| `falaise`          | `2602:fbcf:dd:d9::/64` |
-| `zurich`           | _none_                 |
-| `tulip`            | `2602:fbcf:dd:db::/64` |
-| `nova`             | `2602:fbcf:dd:dc::/64` |
-| `strudel`          | `2602:fbcf:dd:de::/64` |
+| Machine            | v4 Subnet        | v6 Subnet              |
+| ------------------ | ---------------- | ---------------------- |
+| `pete`             | `172.31.0.5/32`  | `2602:fbcf:dd:d0::/64` |
+| _(VT) Not unused_  | `172.31.0.6/32`  | `2602:fbcf:dd:d2::/64` |
+| `yeehaw`           | `172.31.0.7/32`  | `2602:fbcf:dd:d4::/64` |
+| `bay`              | `172.31.0.8/32`  | `2602:fbcf:dd:d5::/64` |
+| _(ON-QC) Not used_ | `172.31.0.9/32`  | `2602:fbcf:dd:d6::/64` |
+| _(QC) Not used_    | `172.31.0.10/32` | `2602:fbcf:dd:d7::/64` |
+| `maple`            | `172.31.0.11/32` | `2602:fbcf:dd:d8::/64` |
+| `falaise`          | `172.31.0.12/32` | `2602:fbcf:dd:d9::/64` |
+| `zurich`           | _none_           | _none_                 |
+| `tulip`            | `172.31.0.14/32` | `2602:fbcf:dd:db::/64` |
+| `nova`             | `172.31.0.15/32` | `2602:fbcf:dd:dc::/64` |
+| `strudel`          | `172.31.0.16/32` | `2602:fbcf:dd:de::/64` |
