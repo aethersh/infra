@@ -8,6 +8,7 @@
     ./blocky.nix
     ./chrony.nix
     ./globalping.nix
+    ../secrets
   ];
 
   nix = {
