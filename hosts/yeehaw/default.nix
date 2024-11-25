@@ -67,7 +67,6 @@
   services.pathvector = {
     enable = true;
     configFile = ./pathvector.yml;
-    routerId = "23.150.41.161";
   };
 
   metrics.node.enable = true;
