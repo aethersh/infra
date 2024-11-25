@@ -19,6 +19,7 @@ let
   maple = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA/6/dLkSuShIpDFwBracmNTlkQ8cVydyp7/MWzfaUnI";
   strudel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNv4kECzICnM9thkHa5X7R9tqgjrsacXJS0LWqUdKKC";
   tulip = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHBs7AtmcMc0uTJxGXAllWTcD3c79bePDgzo4sLMi+gP";
+  yeehaw = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINO9YN+k1oz2fdWQd6lrqUI/8lOJKIiRAMQaBkLXhiAo";
 
   systems = [
     bay
@@ -28,6 +29,7 @@ let
     maple
     strudel
     tulip
+    yeehaw
   ];
 in
 {
@@ -43,6 +45,7 @@ in
   "mapleWgPubkey.age".publicKeys = systems ++ admins;
   "strudelWgPubkey.age".publicKeys = systems ++ admins;
   "tulipWgPubkey.age".publicKeys = systems ++ admins;
+  "yeehawWgPubkey.age".publicKeys = systems ++ admins;
 
   # Machine private keys for WireGuard
   "bayWgPrivkey.age".publicKeys = [ bay ] ++ admins;
@@ -52,4 +55,5 @@ in
   "mapleWgPrivkey.age".publicKeys = [ maple ] ++ admins;
   "strudelWgPrivkey.age".publicKeys = [ strudel ] ++ admins;
   "tulipWgPrivkey.age".publicKeys = [ tulip ] ++ admins;
+  "yeehawWgPrivkey.age".publicKeys = [ yeehaw ] ++ admins;
 }
