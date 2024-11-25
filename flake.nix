@@ -74,7 +74,10 @@
         #
         yeehaw = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/yeehaw ];
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/yeehaw
+          ];
         };
 
         nova = nixpkgs.lib.nixosSystem {
