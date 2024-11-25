@@ -121,7 +121,7 @@
   security.sudo.wheelNeedsPassword = false;
   services.cron.enable = true;
 
-  services.wgautomesh.enable = false;
+  services.wgautomesh.enable = true;
   services.wgautomesh.settings = {
     lan_discovery = true;
   };
