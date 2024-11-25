@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivkey = ../../secrets/mapleWgPrivkey.age;
+  age.secrets.wgPrivkey.file = ../../secrets/mapleWgPrivkey.age;
 
   boot.loader.grub = {
     enable = true;

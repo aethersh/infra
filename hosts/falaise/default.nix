@@ -7,7 +7,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivkey = ../../secrets/falaiseWgPrivkey.age;
+  age.secrets.wgPrivkey.file = ../../secrets/falaiseWgPrivkey.age;
 
   boot.loader.grub = {
     enable = true;

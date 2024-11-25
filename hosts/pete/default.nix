@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivkey = ../../secrets/peteWgPrivkey.age;
+  age.secrets.wgPrivkey.file = ../../secrets/peteWgPrivkey.age;
 
   boot.loader = {
     systemd-boot.enable = true;
