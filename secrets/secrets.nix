@@ -56,4 +56,7 @@ in
   "strudelWgPrivkey.age".publicKeys = [ strudel ] ++ admins;
   "tulipWgPrivkey.age".publicKeys = [ tulip ] ++ admins;
   "yeehawWgPrivkey.age".publicKeys = [ yeehaw ] ++ admins;
+
+  # wgautomesh Gossip Key
+  "wgautomeshGossipKey.age".publicKeys = systems ++ admins;
 }

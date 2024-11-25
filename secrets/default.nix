@@ -1,17 +1,19 @@
 { ... }:
 {
   # All machines should be able to access each other's public keys (and admin pubkeys)
-  # age.secrets = {
-  #   bayWgPubkey = ./bayWgPubkey.age;
-  #   peteWgPubkey = ./peteWgPubkey.age;
-  #   # novaWgPubkey = ./novaWgPubkey.age;
-  #   falaiseWgPubkey = ./falaiseWgPubkey.age;
-  #   mapleWgPubkey = ./mapleWgPubkey.age;
-  #   strudelWgPubkey = ./strudelWgPubkey.age;
-  #   tulipWgPubkey = ./tulipWgPubkey.age;
-  #   yeehawWgPubkey = ./yeehawWgPubkey.age;
+  age.secrets = {
+    wgautomeshGossipKey.file = ./wgautomeshGossipKey.age;
 
-  #   henrikWgPubkey = ./henrikWgPubkey.age;
-  #   # tibsWgPubkey = ./tibsWgPubkey.age;
-  # };
+    bayWgPubkey.file = ./bayWgPubkey.age;
+    peteWgPubkey.file = ./peteWgPubkey.age;
+    # novaWgPubkey.file = ./novaWgPubkey.age;
+    falaiseWgPubkey.file = ./falaiseWgPubkey.age;
+    mapleWgPubkey.file = ./mapleWgPubkey.age;
+    strudelWgPubkey.file = ./strudelWgPubkey.age;
+    tulipWgPubkey.file = ./tulipWgPubkey.age;
+    yeehawWgPubkey.file = ./yeehawWgPubkey.age;
+
+    henrikWgPubkey.file = ./henrikWgPubkey.age;
+    # tibsWgPubkey.file = ./tibsWgPubkey.age;
+  };
 }
