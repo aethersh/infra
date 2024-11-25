@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivKey = ../../secrets/peteWgPrivKey.age;
+  age.secrets.wgPrivkey = ../../secrets/peteWgPrivkey.age;
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -50,7 +50,7 @@
     };
 
     wireguard.interfaces.wg0 = {
-      privateKeyFile = config.age.secrets.wgPrivKey.path;
+      privateKeyFile = config.age.secrets.wgPrivkey.path;
       ips = [
         "172.31.0.9/24"
         "2602:fbcf:dd:d0::/48"
