@@ -9,6 +9,7 @@
     mapleWgPubkey = ./mapleWgPubkey.age;
     strudelWgPubkey = ./strudelWgPubkey.age;
     tulipWgPubkey = ./tulipWgPubkey.age;
+    yeehawWgPubkey = ./yeehawWgPubkey.age;
 
     henrikWgPubkey = ./henrikWgPubkey.age;
     # tibsWgPubkey = ./tibsWgPubkey.age;

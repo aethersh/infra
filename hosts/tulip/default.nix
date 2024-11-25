@@ -69,6 +69,44 @@
     };
   };
 
+  services.wgautomesh.settings.peers = [
+    {
+      endpoint = "bay.as215207.net:51820";
+      address = "172.31.0.6";
+      pubkey = builtins.readFile config.age.secrets.bayWgPubkey.path;
+    }
+    {
+      endpoint = "falaise.as215207.net:51820";
+      address = "172.31.0.7";
+      pubkey = builtins.readFile config.age.secrets.falaiseWgPubkey.path;
+    }
+    {
+      endpoint = "maple.as215207.net:51820";
+      address = "172.31.0.8";
+      pubkey = builtins.readFile config.age.secrets.mapleWgPubkey.path;
+    }
+    {
+      endpoint = "pete.as215207.net:51820";
+      address = "172.31.0.9";
+      pubkey = builtins.readFile config.age.secrets.peteWgPubkey.path;
+    }
+    {
+      endpoint = "strudel.as215207.net:51820";
+      address = "172.31.0.10";
+      pubkey = builtins.readFile config.age.secrets.strudelWgPubkey.path;
+    }
+    # {
+    #   endpoint = "tulip.as215207.net:51820";
+    #   address = "172.31.0.11";
+    #   pubkey = builtins.readFile config.age.secrets.tulipWgPubkey.path;
+    # }
+    {
+      endpoint = "yeehaw.as215207.net:51820";
+      address = "172.31.0.12";
+      pubkey = builtins.readFile config.age.secrets.yeehawWgPubkey.path;
+    }
+  ];
+
   motd.location = "meppel, nl";
 
   # See options.pathvector in modules/pathvector.nix

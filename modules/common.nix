@@ -121,6 +121,11 @@
   security.sudo.wheelNeedsPassword = false;
   services.cron.enable = true;
 
+  services.wgautomesh.enable = true;
+  services.wgautomesh.settings = {
+    lan_discovery = true;
+  };
+
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [
