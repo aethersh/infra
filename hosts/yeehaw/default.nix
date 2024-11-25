@@ -6,7 +6,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivkey.file = ../../secrets/yeehawWgPrivkey.age;
+  age.secrets.yeehawWgPrivkey.file = ../../secrets/yeehawWgPrivkey.age;
 
   boot.loader.grub = {
     enable = true;
@@ -53,7 +53,7 @@
     };
 
     wireguard.interfaces.wg0 = {
-      privateKeyFile = config.age.secrets.wgPrivkey.path;
+      privateKeyFile = config.age.secrets.yeehawWgPrivkey.path;
       ips = [
         "172.31.0.12/24"
         "2602:fbcf:dd:d4::/48"

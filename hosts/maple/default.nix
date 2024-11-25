@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
   ];
 
-  age.secrets.wgPrivkey.file = ../../secrets/mapleWgPrivkey.age;
+  age.secrets.mapleWgPrivkey.file = ../../secrets/mapleWgPrivkey.age;
 
   boot.loader.grub = {
     enable = true;
@@ -60,7 +60,7 @@
     };
 
     wireguard.interfaces.wg0 = {
-      privateKeyFile = config.age.secrets.wgPrivkey.path;
+      privateKeyFile = config.age.secrets.mapleWgPrivkey.path;
       ips = [
         "172.31.0.8/24"
         "2602:fbcf:dd:d8::/48"
