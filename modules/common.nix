@@ -109,7 +109,12 @@
     inetutils
     wireguard-tools
     q
+    bat
   ];
+
+  environment.shellAliases = {
+    cat = "${pkgs.bat}/bin/bat -p";
+  };
 
   security.sudo.wheelNeedsPassword = false;
   services.cron.enable = true;
