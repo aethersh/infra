@@ -26,7 +26,7 @@
         ipv6.addresses = [
           {
             address = "2602:02b7:40:65::166";
-            prefixLength = 64;
+            prefixLength = 128;
           }
         ];
       };
@@ -57,6 +57,7 @@
   services.pathvector = {
     enable = true;
     configFile = ./pathvector.yml;
+    routerId = "23.150.41.161";
   };
 
   metrics.node.enable = true;
