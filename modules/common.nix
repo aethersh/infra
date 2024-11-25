@@ -43,6 +43,7 @@
   networking = {
     domain = "as215207.net";
     networkmanager.enable = false;
+    wireguard.enable = true;
     useDHCP = false;
     tempAddresses = "disabled";
     firewall = {

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -11,6 +11,8 @@
 
     ./hardware-configuration.nix
   ];
+
+  age.secrets.wgPrivKey = ../../secrets/peteWgPrivKey.age;
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -45,6 +47,11 @@
     defaultGateway6 = {
       address = "fe80::216:3eff:fe71:5ecb";
       interface = "ens3";
+    };
+
+    wireguard.interfaces.wg0 = {
+      privateKeyFile = config.age.secrets.wgPrivKey.path;
+      ips = [ "172.31.0.9/24" ];
     };
   };
 

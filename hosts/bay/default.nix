@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -6,6 +6,8 @@
 
     ./hardware-configuration.nix
   ];
+
+  age.secrets.wgPrivKey = ../../secrets/bayWgPrivKey.age;
 
   boot.loader.grub = {
     enable = true;
@@ -50,6 +52,11 @@
     defaultGateway6 = {
       address = "2602:fa7e:12::1";
       interface = "ens18";
+    };
+
+    wireguard.interfaces.wg0 = {
+      privateKeyFile = config.age.secrets.wgPrivKey.path;
+      ips = [ "172.31.0.6/24" ];
     };
   };
 

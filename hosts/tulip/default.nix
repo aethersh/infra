@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -6,6 +6,8 @@
 
     ./hardware-configuration.nix
   ];
+
+  age.secrets.wgPrivKey = ../../secrets/tulipWgPrivKey.age;
 
   boot.loader.grub = {
     enable = true;
@@ -56,6 +58,11 @@
     defaultGateway6 = {
       address = "2a0c:b640:8::ffff";
       interface = "ens18";
+    };
+
+    wireguard.interfaces.wg0 = {
+      privateKeyFile = config.age.secrets.wgPrivKey.path;
+      ips = [ "172.31.0.11/24" ];
     };
   };
 
