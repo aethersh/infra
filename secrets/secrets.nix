@@ -31,6 +31,14 @@ let
   ];
 in
 {
+  # Machine public keys for WireGuard
+  "bayWgPubkey.age".publicKeys = systems ++ admins;
+  "peteWgPubkey.age".publicKeys = systems ++ admins;
+  # "novaWgPubkey.age".publicKeys = [ nova ] ++ admins;
+  "falaiseWgPubkey.age".publicKeys = systems ++ admins;
+  "mapleWgPubkey.age".publicKeys = systems ++ admins;
+  "strudelWgPubkey.age".publicKeys = systems ++ admins;
+  "tulipWgPubkey.age".publicKeys = systems ++ admins;
 
   # Machine private keys for WireGuard
   "bayWgPrivkey.age".publicKeys = [ bay ] ++ admins;
