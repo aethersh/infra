@@ -51,7 +51,10 @@
 
     wireguard.interfaces.wg0 = {
       privateKeyFile = config.age.secrets.wgPrivKey.path;
-      ips = [ "172.31.0.9/24" ];
+      ips = [
+        "172.31.0.9/24"
+        "2602:fbcf:dd:d0::/48"
+      ];
     };
   };
 
