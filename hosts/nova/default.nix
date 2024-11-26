@@ -14,7 +14,7 @@
 
   networking = {
     hostName = "nova";
-
+    wireguard.enable = false;
     interfaces = {
       ens18 = {
         # ParadoxNetworks
