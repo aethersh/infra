@@ -68,8 +68,8 @@
       peers = [
         {
           name = "bay";
-          publicKey = builtins.readFile config.age.secrets.bayWgPubkey.path;
-          endpoint = "bay.as215207.net:51820";
+          publicKey = "R6XggQejbqHF/l9rvgTJx5a/89Zw0Grd0pJ8OKwkXUE=";
+          endpoint = "bay.as215207.net:60908";
           allowedIPs = [
             "172.31.0.8/32"
             "2602:fbcf:dd:d5::/64"
@@ -77,8 +77,8 @@
         }
         {
           name = "falaise";
-          publicKey = builtins.readFile config.age.secrets.falaiseWgPubkey.path;
-          endpoint = "falaise.as215207.net:51820";
+          publicKey = "F80L40pvu3N7pP9EXGS+SbP20NH6z+rHbcOHYBnQwg8=";
+          endpoint = "falaise.as215207.net:60908";
           allowedIPs = [
             "172.31.0.12/32"
             "2602:fbcf:dd:d9::/64"
@@ -86,8 +86,8 @@
         }
         # {
         #   name = "maple";
-        #   publicKey = builtins.readFile config.age.secrets.mapleWgPubkey.path;
-        #   endpoint = "maple.as215207.net:51820";
+        #   publicKey = "FcSTiNO/GrPeTqfIcHrpOGQks324suM4QcdbGOM1igc=";
+        #   endpoint = "maple.as215207.net:60908";
         #   allowedIPs = [
         #     "172.31.0.11/32"
         #     "2602:fbcf:dd:d8::/64"
@@ -95,8 +95,8 @@
         # }
         {
           name = "pete";
-          publicKey = builtins.readFile config.age.secrets.peteWgPubkey.path;
-          endpoint = "pete.as215207.net:51820";
+          publicKey = "UI+GluPRk0biKO+JITUDgOy+4b2LOw7x7TbhML/lC1Q=";
+          endpoint = "pete.as215207.net:60908";
           allowedIPs = [
             "172.31.0.5/32"
             "2602:fbcf:dd:d6::/64"
@@ -104,30 +104,30 @@
         }
         {
           name = "strudel";
-          endpoint = "strudel.as215207.net:51820";
+          endpoint = "strudel.as215207.net:60908";
           allowedIPs = [
             "172.31.0.16/32"
             "2602:fbcf:dd:de::/64"
           ];
-          publicKey = builtins.readFile config.age.secrets.strudelWgPubkey.path;
+          publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
         }
         {
           name = "tulip";
-          endpoint = "tulip.as215207.net:51820";
+          endpoint = "tulip.as215207.net:60908";
           allowedIPs = [
             "172.31.0.14/32"
             "2602:fbcf:dd:db::/64"
           ];
-          publicKey = builtins.readFile config.age.secrets.tulipWgPubkey.path;
+          publicKey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
         }
         {
           name = "yeehaw";
-          endpoint = "yeehaw.as215207.net:51820";
+          endpoint = "yeehaw.as215207.net:60908";
           allowedIPs = [
             "172.31.0.7/32"
             "2602:fbcf:dd:d4::/64"
           ];
-          publicKey = builtins.readFile config.age.secrets.yeehawWgPubkey.path;
+          publicKey = "BWvxchKyCm2LrXKkVFInjgGWqRVOTyUcKYDGcPpUdR4=";
         }
       ];
     };

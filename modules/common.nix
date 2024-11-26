@@ -4,6 +4,11 @@
   config,
   ...
 }:
+let
+
+  wireguardListenPort = 60908;
+
+in
 
 {
   imports = [
@@ -53,12 +58,15 @@
     tempAddresses = "disabled";
     firewall = {
       enable = true;
+      allowPing = true;
       allowedTCPPorts = [
         22
-        51820
+        wireguardListenPort
       ];
-      allowedUDPPorts = [ 51820 ];
+      allowedUDPPorts = [ wireguardListenPort ];
+      trustedInterfaces = [ "wg0" ];
     };
+    wireguard.interfaces.wg0.listenPort = wireguardListenPort;
   };
 
   boot.kernel.sysctl = {
