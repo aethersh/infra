@@ -40,6 +40,18 @@
         }
       ];
       caching.prefetching = true;
+      customDNS = {
+        mapping = {
+          "pete.wg" = "172.31.0.5,2602:fbcf:dd:d0::";
+          "yeehaw.wg" = "172.31.0.7,2602:fbcf:dd:d4::";
+          "bay.wg" = "172.31.0.8,2602:fbcf:dd:d5::";
+          "maple.wg" = "172.31.0.11,2602:fbcf:dd:d8::";
+          "falaise.wg" = "172.31.0.12,2602:fbcf:dd:d9::";
+          "tulip.wg" = "172.31.0.14,2602:fbcf:dd:db::";
+          "nova.wg" = "172.31.0.15,2602:fbcf:dd:dc::";
+          "strudel.wg" = "172.31.0.16,2602:fbcf:dd:de::";
+        };
+      };
     };
   };
 
