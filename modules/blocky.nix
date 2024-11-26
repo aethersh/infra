@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking = {
@@ -43,10 +43,36 @@
     };
   };
 
-  systemd.services.blocky = {
-    description = "A DNS proxy and ad-blocker for the local network";
-    requires = [ "network-online.target" ];
+  systemd.services = {
+    blocky = {
+      description = "A DNS proxy and ad-blocker for the local network";
+      requires = [ "network-online.target" ];
+    };
+    blocky-healthchecker = {
+      description = "Check the health of the Blocky DNS service";
+      requires = [ "blocky.service" ];
+      serviceConfig = {
+        Type = "oneshot";
+      };
+      script = with pkgs; ''
+        ${ldns}/bin/drill cache.nixos.org
+
+        if [ $? -ne 0 ]; then
+          # Give it another chance
+          sleep 5
+          ${ldns}/bin/drill cache.nixos.org
+
+          if [ $? -ne 0 ]; then
+            systemctl restart blocky.service
+            echo "Blocky was unhealthy and has been restarted"
+          fi
+        else
+          echo "Blocky is healthy"
+        fi
+      '';
+      startAt = "hourly";
+    };
   };
 
-  services.cron.systemCronJobs = [ "0 0,12 * * * root systemctl restart blocky.service" ];
+  # services.cron.systemCronJobs = [ "0 0,12 * * * root systemctl restart blocky.service" ];
 }
