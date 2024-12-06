@@ -134,6 +134,11 @@ in
   security.sudo.wheelNeedsPassword = false;
   services.cron.enable = true;
 
+    metrics.node.enable = lib.mkDefault true;
+  metrics.node.openFirewall = lib.mkDefault  true;
+  metrics.bird.enable = lib.mkDefault  true;
+  metrics.bird.openFirewall = lib.mkDefault  true;
+
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [
