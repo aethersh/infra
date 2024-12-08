@@ -56,6 +56,8 @@ in
     wireguard.enable = lib.mkDefault true;
     useDHCP = false;
     tempAddresses = "disabled";
+
+    nftables.enable = true;
     firewall = {
       enable = true;
       allowPing = true;
@@ -69,6 +71,7 @@ in
     wireguard.interfaces.wg0.listenPort = wireguardListenPort;
   };
 
+  # https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
