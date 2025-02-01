@@ -32,6 +32,15 @@
             prefixLength = 64;
           }
         ];
+
+        # Upstream route
+        ipv6.routes = [
+          {
+            address = "2606:fa7e:13::";
+            prefixLength = 48;
+            via = "2602:fa7e:12::1";
+          }
+        ];
       };
 
       ens19 = {
