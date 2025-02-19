@@ -31,7 +31,17 @@
             prefixLength = 128;
           }
         ];
+
+        # Upstream route
+        ipv6.routes = [
+          {
+            address = "2602:2b7:40:1::";
+            prefixLength = 64;
+            via = "2602:02b7:40:65::1";
+          }
+        ];
       };
+
       # F4IX
       ens19 = {
         ipv6.addresses = [
