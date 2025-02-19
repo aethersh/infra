@@ -53,7 +53,7 @@ in
   networking = {
     domain = "as215207.net";
     networkmanager.enable = false;
-    wireguard.enable = lib.mkDefault true;
+    wireguard.enable = lib.mkDefault false;
     useDHCP = false;
     tempAddresses = "disabled";
 
