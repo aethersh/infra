@@ -77,6 +77,13 @@ peers:
     neighbors:
       - 2001:504:125:e1::3
 
+  AndrewNet:
+    asn: 1003
+    template: peer
+    neighbors:
+      - 142.11.50.21
+      - 2001:504:125:e1::21
+
   AS112:
     asn: 112
     local-pref: 110
