@@ -80,6 +80,14 @@
           ];
         };
 
+        kier = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            agenix.nixosModules.default
+            ./hosts/kier
+          ];
+        };
+
         nova = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
