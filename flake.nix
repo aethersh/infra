@@ -166,6 +166,10 @@
             hostname = "yeehaw.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.yeehaw;
           };
+          kier = {
+            hostname = "kier.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.kier;
+          };
         };
       };
 
