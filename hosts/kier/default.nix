@@ -42,6 +42,11 @@
     };
   };
 
+  services.pathvector = {
+    enable = true;
+    configFile = ./pathvector.yml;
+  };
+
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.11";
   # ======================== DO NOT CHANGE THIS ========================
