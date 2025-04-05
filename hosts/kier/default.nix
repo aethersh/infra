@@ -17,7 +17,7 @@
   networking = {
     hostName = "kier";
     usePredictableInterfaceNames = true;
-    interfaces.enp0s18 = {
+    interfaces.ens18 = {
       ipv4.addresses = [
         {
           address = "23.143.82.38";
@@ -34,11 +34,11 @@
 
     defaultGateway = {
       address = "23.143.82.1";
-      interface = "enp0s18";
+      interface = "ens18";
     };
     defaultGateway6 = {
       address = "2602:fc26:12::1";
-      interface = "enp0s18";
+      interface = "ens18";
     };
   };
 
