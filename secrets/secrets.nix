@@ -20,7 +20,7 @@ let
   strudel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNv4kECzICnM9thkHa5X7R9tqgjrsacXJS0LWqUdKKC";
   tulip = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHBs7AtmcMc0uTJxGXAllWTcD3c79bePDgzo4sLMi+gP";
   yeehaw = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINO9YN+k1oz2fdWQd6lrqUI/8lOJKIiRAMQaBkLXhiAo";
-
+  kier = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPaZuJVKquPjPZ+Sv4Dovg1ixxtPxNnjlHrQn6cv8K2E";
   systems = [
     bay
     pete
@@ -30,6 +30,7 @@ let
     strudel
     tulip
     yeehaw
+    kier
   ];
 in
 {
