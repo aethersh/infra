@@ -20,6 +20,8 @@ templates:
     import-limit4: 1500000
     import-limit6: 500000
     add-on-import: ["215207:100:80"]
+    tags:
+      - upstream
 
   routeserver:
     filter-transit-asns: true
@@ -30,6 +32,8 @@ templates:
     remove-all-communities: 215207
     local-pref: 90
     add-on-import: ["215207:100:90"]
+    tags:
+      - routeserver
 
   peer:
     filter-irr: true
@@ -40,6 +44,8 @@ templates:
     remove-all-communities: 215207
     local-pref: 100
     add-on-import: ["215207:100:100"]
+    tags:
+      - peer
 
   downstream:
     filter-irr: true
@@ -51,6 +57,8 @@ templates:
     remove-all-communities: 215207
     local-pref: 200
     add-on-import: ["215207:100:200"]
+    tags:
+      - downstream
 
 peers:
   Neptune Networks:
