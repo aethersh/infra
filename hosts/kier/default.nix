@@ -1,7 +1,9 @@
-{...}: {
+{ ... }:
+{
 
-  imports = [ ../../modules/common.nix
-  
+  imports = [
+    ../../modules/common.nix
+
     ./hardware-configuration.nix
   ];
 
@@ -14,19 +16,20 @@
 
   networking = {
     hostName = "kier";
-    interfaces.ens10 = {
-              ipv4.addresses = [
-          {
-            address = "23.143.82.38";
-            prefixLength = 24;
-          }
-        ];
-        ipv6.addresses = [
-          {
-            address = "2602:fc26:12:1::38";
-            prefixLength = 48;
-          }
-        ];
+    usePredictableInterfaceNames = true;
+    interfaces.enp0s18 = {
+      ipv4.addresses = [
+        {
+          address = "23.143.82.38";
+          prefixLength = 24;
+        }
+      ];
+      ipv6.addresses = [
+        {
+          address = "2602:fc26:12:1::38";
+          prefixLength = 48;
+        }
+      ];
     };
 
     defaultGateway = {
@@ -38,7 +41,6 @@
       interface = "ens10";
     };
   };
-
 
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "24.11";
