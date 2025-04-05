@@ -66,5 +66,5 @@ peers:
     multihop: true
     add-on-import: ["215207:120:1003"]
     neighbors:
-      - 23.143.82.38
+      - 23.143.82.1
       - 2602:fc26:12::1
