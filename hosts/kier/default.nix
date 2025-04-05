@@ -34,11 +34,11 @@
 
     defaultGateway = {
       address = "23.143.82.1";
-      interface = "ens10";
+      interface = "enp0s18";
     };
     defaultGateway6 = {
       address = "2602:fc26:12::1";
-      interface = "ens10";
+      interface = "enp0s18";
     };
   };
 
