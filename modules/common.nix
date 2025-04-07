@@ -128,6 +128,7 @@ in
     wireguard-tools
     q
     bat
+    mtr
   ];
 
   environment.shellAliases = {
