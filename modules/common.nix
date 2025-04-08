@@ -40,8 +40,8 @@ in
         "nix-command"
         "flakes"
       ];
-      allowed-users = [ "admin" ];
-      trusted-users = [ "admin" ];
+      allowed-users = [ "admin" "root" "@wheel" ];
+      trusted-users = [ "admin" "root" "@wheel" ];
     };
   };
 
