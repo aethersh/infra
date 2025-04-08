@@ -80,6 +80,7 @@ in
 
   services = {
     iperf3.enable = true;
+    iperf3.openFirewall = lib.mkDefault true;
 
     openssh = {
       enable = true;
@@ -129,6 +130,7 @@ in
     q
     bat
     mtr
+    iperf3
   ];
 
   environment.shellAliases = {
