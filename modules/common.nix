@@ -131,6 +131,7 @@ in
     bat
     mtr
     iperf3
+    blocky
   ];
 
   environment.shellAliases = {
