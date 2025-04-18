@@ -30,6 +30,15 @@
             address = "2602:02b7:40:65::166";
             prefixLength = 128;
           }
+
+          {
+            address = "2602:fbcf:d4::1";
+            prefixLength = 48;
+          }
+          {
+            address = "2602:fbcf:df::1";
+            prefixLength = 48;
+          }
         ];
 
         # Upstream route

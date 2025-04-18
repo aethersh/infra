@@ -16,7 +16,6 @@
 
   networking = {
     hostName = "kier";
-    usePredictableInterfaceNames = true;
     interfaces.ens18 = {
       ipv4.addresses = [
         {
@@ -27,6 +26,11 @@
       ipv6.addresses = [
         {
           address = "2602:fc26:12:1::38";
+          prefixLength = 48;
+        }
+        
+        {
+          address = "2602:fbcf:df::1";
           prefixLength = 48;
         }
         {
