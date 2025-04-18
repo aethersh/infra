@@ -40,8 +40,16 @@ in
         "nix-command"
         "flakes"
       ];
-      allowed-users = [ "admin" "root" "@wheel" ];
-      trusted-users = [ "admin" "root" "@wheel" ];
+      allowed-users = [
+        "admin"
+        "root"
+        "@wheel"
+      ];
+      trusted-users = [
+        "admin"
+        "root"
+        "@wheel"
+      ];
     };
   };
 
@@ -128,7 +136,7 @@ in
     inetutils
     wireguard-tools
     q
-    bat 
+    bat
     mtr
     iperf3
     blocky
