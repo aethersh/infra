@@ -128,7 +128,7 @@ in
     inetutils
     wireguard-tools
     q
-    bat
+    bat 
     mtr
     iperf3
     blocky

@@ -1,7 +1,7 @@
 asn: 215207
 router-id: 23.154.9.40
 source4: 23.154.9.40
-source6: 2602:fa7e:10::4a
+source6: 2602:fbcf:d8::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:d8::/48
@@ -10,6 +10,9 @@ prefixes:
 add-on-export: ["215207:140:4124"]
 add-on-import: ["215207:140:4124"]
 local-communities: ["215207:0:100"]
+
+kernel:
+  accept6: ["static6"]
 
 templates:
   upstream:
@@ -80,6 +83,7 @@ peers:
   AndrewNet:
     asn: 1003
     template: peer
+    filter-irr: false
     neighbors:
       - 142.11.50.21
       - 2001:504:125:e1::21
