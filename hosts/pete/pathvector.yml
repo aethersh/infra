@@ -1,7 +1,7 @@
 asn: 215207
 router-id: 172.82.22.174
 source4: 172.82.22.174
-source6: 2602:fe2e:4:8e:28:ff:fe58:fe99
+source6: 2602:fbcf:d0::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:d0::/47
@@ -10,6 +10,9 @@ prefixes:
 add-on-export: ["215207:140:11840"]
 add-on-import: ["215207:140:11840"]
 local-communities: ["215207:0:100"]
+
+kernel:
+  accept6: ["static6"]
 
 templates:
   upstream:

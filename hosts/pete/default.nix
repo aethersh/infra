@@ -36,6 +36,10 @@
             address = "2602:fe2e:4:8e:5c:52ff:fe90:c106";
             prefixLength = 48;
           }
+          {
+            address = "2602:fbcf:d0::1";
+            prefixLength = 47;
+          }
         ];
       };
     };
