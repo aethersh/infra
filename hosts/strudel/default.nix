@@ -100,29 +100,18 @@
       privateKeyFile = config.age.secrets.strudelWgPrivkey.path;
       ips = [
         "172.31.0.10/24"
-        "fd:215:207::1276/56"
+        "fd:215:207::1276/64"
       ];
       peers = [
-        # {
-        #   name = "strudel";
-        #   endpoint = "strudel.as215207.net:60908";
-        #   allowedIPs = [
-        #     "172.31.0.16/32"
-        #     "2602:fbcf:dd:de::/64"
-        #   ];
-        #   publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
-        # }
-
-        
-        # {
-        #   name = "tulip";
-        #   endpoint = "tulip.as215207.net:60908";
-        #   allowedIPs = [
-        #     "172.31.0.20/32"
-        #     "fd:215:207::528/64"
-        #   ];
-        #   publicKey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
-        # }
+        {
+          name = "tulip";
+          endpoint = "tulip.as215207.net:60908";
+          allowedIPs = [
+            "172.31.0.20/32"
+            "fd:215:207::528/128"
+          ];
+          publicKey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
+        }
       ];
     };
   };
