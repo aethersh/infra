@@ -74,7 +74,7 @@
       privateKeyFile = config.age.secrets.tulipWgPrivkey.path;
       ips = [
         "172.31.0.20/24"
-        "fd:215:207::528/64"
+        "fd00:215:207::528/64"
       ];
       peers = [
         {
@@ -82,7 +82,7 @@
           endpoint = "strudel.as215207.net:60908";
           allowedIPs = [
             "172.31.0.10/32"
-            "fd:215:207::1276/128"
+            "fd00:215:207::1276/128"
           ];
           publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
         }
