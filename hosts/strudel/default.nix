@@ -31,6 +31,15 @@
             address = "2a0c:b640:10::208";
             prefixLength = 112;
           }
+
+          {
+            address = "2602:fbcf:de::1";
+            prefixLength = 48;
+          }
+          {
+            address = "2602:fbcf:df::1";
+            prefixLength = 48;
+          }
         ];
       };
 

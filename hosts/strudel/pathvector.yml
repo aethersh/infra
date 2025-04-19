@@ -1,11 +1,14 @@
 asn: 215207
 router-id: 194.28.99.208
 source4: 194.28.99.208
-source6: 2a0c:b640:10::208
+source6: 2602:fbcf:de::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:de::/48
   - 2a0f:85c1:3aa::/48
+
+kernel:
+  accept6: ["static6"]
 
 # Due to the VPS being located in Dusseldorf but also connected to LOCIX Frankfurt, there are no default communities set here.
 # The communities spec in the root of this repo differentiates between Dusseldorf and Frankfurt.
