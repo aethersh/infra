@@ -1,7 +1,7 @@
 asn: 215207
 router-id: 23.154.81.115
 source4: 23.154.81.115
-source6: 2602:fed2:fb0:68::1
+source6: 2602:fbcf:d9::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:d9::/48
@@ -12,6 +12,9 @@ add-on-import: ["215207:140:5124"]
 local-communities: ["215207:0:100"]
 irr-query-timeout: 120
 irr-server: whois.in.bell.ca
+
+kernel:
+  accept6: ["static6"]
 
 templates:
   upstream:

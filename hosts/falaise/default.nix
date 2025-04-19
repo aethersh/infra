@@ -47,6 +47,15 @@
             address = "2602:ffb1:0200:0:192:34:27:132";
             prefixLength = 48;
           }
+
+          {
+          address = "2602:fbcf:df::1";
+          prefixLength = 48;
+        }
+        {
+          address = "2602:fbcf:d9::1";
+          prefixLength = 48;
+        }
         ];
       };
     };
