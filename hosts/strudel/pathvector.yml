@@ -6,6 +6,7 @@ prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:de::/48
   - 2a0f:85c1:3aa::/48
+  - 2602:fbcf:db::/48
 
 kernel:
   accept6: ["static6"]
@@ -124,14 +125,6 @@ peers:
     neighbors:
       - 185.1.166.3
       - 2001:7f8:f2:e1:0:1:3335:1
-
-  ae-tulip:
-    asn: 215207
-    template: peer
-    filter-irr: false
-    neighbors:
-      - 172.31.0.20
-      - fd:215:207::528
 
   AS112:
     asn: 112
