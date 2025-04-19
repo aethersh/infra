@@ -125,6 +125,14 @@ peers:
       - 185.1.166.3
       - 2001:7f8:f2:e1:0:1:3335:1
 
+  ae-tulip:
+    asn: 215207
+    template: peer
+    filter-irr: false
+    neighbors:
+      - 172.31.0.20
+      - fd:215:207::528
+
   AS112:
     asn: 112
     local-pref: 110
