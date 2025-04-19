@@ -53,38 +53,19 @@
       interface = "ens3";
     };
 
+    wireguard.enable = true;
     wireguard.interfaces.wg0 = {
       privateKeyFile = config.age.secrets.peteWgPrivkey.path;
       ips = [
-        "172.31.0.5/24"
-        "2602:fbcf:dd:d0::/48"
+        "2602:fbcf:d0:beef::/64"
       ];
       peers = [
         {
-          name = "bay";
-          publicKey = "R6XggQejbqHF/l9rvgTJx5a/89Zw0Grd0pJ8OKwkXUE=";
-          endpoint = "bay.as215207.net:60908";
+          name = "pepacton-henrik";
+          publicKey = "vxl2WJhIAdV3wz2i9G+vibxjA2rWVjL6/gHtYqf31gg=";
+          persistentKeepalive = 15;
           allowedIPs = [
-            "172.31.0.8/32"
-            "2602:fbcf:dd:d5::/64"
-          ];
-        }
-        {
-          name = "falaise";
-          publicKey = "F80L40pvu3N7pP9EXGS+SbP20NH6z+rHbcOHYBnQwg8=";
-          endpoint = "falaise.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.12/32"
-            "2602:fbcf:dd:d9::/64"
-          ];
-        }
-        {
-          name = "maple";
-          publicKey = "FcSTiNO/GrPeTqfIcHrpOGQks324suM4QcdbGOM1igc=";
-          endpoint = "maple.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.11/32"
-            "2602:fbcf:dd:d8::/64"
+            "2602:fbcf:d0:bee5::/64"
           ];
         }
         # {
@@ -96,33 +77,6 @@
         #     "2602:fbcf:dd:d6::/64"
         #   ];
         # }
-        {
-          name = "strudel";
-          endpoint = "strudel.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.16/32"
-            "2602:fbcf:dd:de::/64"
-          ];
-          publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
-        }
-        {
-          name = "tulip";
-          endpoint = "tulip.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.14/32"
-            "2602:fbcf:dd:db::/64"
-          ];
-          publicKey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
-        }
-        {
-          name = "yeehaw";
-          endpoint = "yeehaw.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.7/32"
-            "2602:fbcf:dd:d4::/64"
-          ];
-          publicKey = "BWvxchKyCm2LrXKkVFInjgGWqRVOTyUcKYDGcPpUdR4=";
-        }
       ];
     };
   };
