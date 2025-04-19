@@ -77,15 +77,16 @@
         "fd:215:207::528/56"
       ];
       peers = [
-        {
-          name = "strudel";
-          endpoint = "strudel.as215207.net:60908";
-          allowedIPs = [
-            "172.31.0.10/32"
-            "fd:215:207::1276/64"
-          ];
-          publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
-        }
+        # {
+        #   name = "strudel";
+        #   endpoint = "strudel.as215207.net:60908";
+        #   allowedIPs = [
+        #     "172.31.0.10/32"
+        #     "fd:215:207::1276/64"
+        #   ];
+        #   publicKey = "Q/uu+7+gMFT57LkFH4tu1bMrfQSuYiR/OALmR/oJaBY=";
+        # }
+        
         # {
         #   name = "tulip";
         #   endpoint = "tulip.as215207.net:60908";
