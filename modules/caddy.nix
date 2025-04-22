@@ -21,7 +21,7 @@
         hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
       }
     );
-    globalConfig = builtins.readFile ./Caddyfile;
+    extraConfig = builtins.readFile ./Caddyfile;
     virtualHosts."anycast.as215207.net" = {
       extraConfig = ''
         import cf-dns-v6
