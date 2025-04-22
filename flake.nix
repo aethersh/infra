@@ -61,7 +61,7 @@
 
         maple = nixpkgs.lib.nixosSystem {
           inherit system;
-                    specialArgs = {
+          specialArgs = {
             inherit unstable;
           };
           modules = [
