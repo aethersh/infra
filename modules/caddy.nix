@@ -1,6 +1,6 @@
 {
   pkgs,
-  unstable,
+  unstablePkgs,
   lib,
   config,
   ...
@@ -16,9 +16,9 @@
   services.caddy = {
     enable = true;
     package = (
-      unstable.caddy.withPlugins {
+      unstablePkgs.caddy.withPlugins {
         plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-        hash = lib.fakeHash;
+        hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
       }
     );
     globalConfig = builtins.readFile ./Caddyfile;
