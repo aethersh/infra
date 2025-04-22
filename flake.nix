@@ -2,7 +2,9 @@
   description = "AetherNet's NixOS-based infrastructure";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:yaxitech/ragenix";
   };
@@ -14,7 +16,7 @@
       deploy-rs,
       agenix,
       ...
-    }:
+    }@inputs:
     let
 
       supportedSystems = [
@@ -28,6 +30,9 @@
 
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+
+      unstable = import inputs.unstable { inherit system; };
+
       deployPkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -45,6 +50,9 @@
       nixosConfigurations = {
         pete = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/pete
@@ -53,6 +61,9 @@
 
         maple = nixpkgs.lib.nixosSystem {
           inherit system;
+                    specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/maple
@@ -61,6 +72,9 @@
 
         bay = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/bay
@@ -74,6 +88,9 @@
         #
         yeehaw = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/yeehaw
@@ -82,6 +99,9 @@
 
         kier = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/kier
@@ -90,6 +110,9 @@
 
         nova = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/nova
@@ -98,6 +121,9 @@
 
         strudel = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/strudel
@@ -106,6 +132,9 @@
 
         tulip = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/tulip
@@ -114,6 +143,9 @@
 
         falaise = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit unstable;
+          };
           modules = [
             agenix.nixosModules.default
             ./hosts/falaise
