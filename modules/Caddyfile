@@ -1,6 +1,6 @@
 (cf-dns-v6) {
 	tls {
-		dns cloudflare @cloudflare_tls_api_key@
+		dns cloudflare {$CF_DNS_API_TOKEN}
 		resolvers 2001:4860:4860::8844 2001:4860:4860::8888
 	}
 }

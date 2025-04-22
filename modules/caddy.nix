@@ -21,14 +21,7 @@
         hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
       }
     );
-    extraConfig = ''
-(cf-dns-v6) {
-	tls {
-		dns cloudflare ${builtins.readFile "${config.age.secrets.cfDnsKey.path}"}
-		resolvers 2001:4860:4860::8844 2001:4860:4860::8888
-	}
-}
-    '';
+    extraConfig = builtins.readFile ./Caddyfile;
     virtualHosts."anycast.as215207.net" = {
       extraConfig = ''
         import cf-dns-v6
@@ -36,6 +29,8 @@
       '';
     };
   };
+
+  systemd.services.caddy.environment.CF_DNS_API_TOKEN = "$(cat ${config.age.secrets.cfDnsKey.path})";
 
   networking.firewall.allowedTCPPorts = [
     80
