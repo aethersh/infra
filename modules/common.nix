@@ -19,6 +19,7 @@ in
     ./chrony.nix
     ./globalping.nix
     ../secrets
+    ./caddy.nix
   ];
 
   nix = {
