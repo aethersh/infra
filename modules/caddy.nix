@@ -21,7 +21,14 @@
         hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
       }
     );
-    extraConfig = builtins.readFile ./Caddyfile;
+    extraConfig = ''
+(cf-dns-v6) {
+	tls {
+		dns cloudflare ${builtins.readFile "${config.age.secrets.cfDnsKey.path}"}
+		resolvers 2001:4860:4860::8844 2001:4860:4860::8888
+	}
+}
+    '';
     virtualHosts."anycast.as215207.net" = {
       extraConfig = ''
         import cf-dns-v6
