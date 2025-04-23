@@ -7,11 +7,11 @@
 }:
 {
   age.secrets.cfDnsKey.file = ../secrets/cfDnsKey.age;
-  system.activationScripts."caddy-secrets" = ''
-    cloudflare_tls_api_key=$(cat "${config.age.secrets.cfDnsKey.path}")
-    configFile=${config.services.caddy.configFile}
-    ${pkgs.gnused}/bin/sed -i "s/@cloudflare_tls_api_key@/$cloudflare_tls_api_key/" "$configFile"
-  '';
+  # system.activationScripts."caddy-secrets" = ''
+  #   cloudflare_tls_api_key=$(cat "${config.age.secrets.cfDnsKey.path}")
+  #   configFile=${config.services.caddy.configFile}
+  #   ${pkgs.gnused}/bin/sed -i "s/@cloudflare_tls_api_key@/$cloudflare_tls_api_key/" "$configFile"
+  # '';
 
   services.caddy = {
     enable = true;
