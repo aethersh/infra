@@ -35,7 +35,7 @@ let
 in
 {
   # API Keys
-  "cfDnsKey.age".publicKeys = systems ++ admins;
+  "caddyEnvVars.age".publicKeys = systems ++ admins;
 
   # Admin public keys for WireGuard
   "henrikWgPubkey.age".publicKeys = systems ++ admins;
