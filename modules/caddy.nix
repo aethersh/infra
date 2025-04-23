@@ -6,7 +6,11 @@
   ...
 }:
 {
-  age.secrets.cfDnsKey.file = ../secrets/cfDnsKey.age;
+  age.secrets.cfDnsKey = {
+    file = ../secrets/cfDnsKey.age;
+    owner = "caddy";
+    group = "caddy";
+  };
   # system.activationScripts."caddy-secrets" = ''
   #   cloudflare_tls_api_key=$(cat "${config.age.secrets.cfDnsKey.path}")
   #   configFile=${config.services.caddy.configFile}
