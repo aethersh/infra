@@ -7,7 +7,7 @@
 }:
 {
   age.secrets.cfDnsKey = {
-    file = ../secrets/cfDnsKey.age;
+    file = ../../secrets/caddyEnvVars.age;
     owner = "caddy";
     group = "caddy";
   };
