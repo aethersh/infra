@@ -34,7 +34,7 @@
     };
   };
 
-  systemd.services.caddy.environment.CF_DNS_API_TOKEN = "$(cat ${config.age.secrets.cfDnsKey.path})";
+  systemd.services.caddy.environmentFile = config.age.secrets.cfDnsKey.path;
 
   networking.firewall.allowedTCPPorts = [
     80

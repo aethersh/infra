@@ -4,7 +4,7 @@ let
   # --------- Administrator Public Keys ---------
   # Fetch public keys from websites
   henrik_pubkey = builtins.readFile (builtins.fetchurl "https://henrikvt.com/id_ed25519.pub");
-  tibs_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ2j1Tc6TMied/Hft9RWZpB+OFlN+TgsDikeJpe8elQ";
+  tibs_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfxuU8uMTeoNhOn0AM/LysdLrOxfeYT0c/N+Rh/ChgY";
 
   admins = [
     henrik_pubkey
