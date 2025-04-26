@@ -34,7 +34,7 @@
     };
   };
 
-  systemd.services.caddy.environmentFile = config.age.secrets.cfDnsKey.path;
+  systemd.services.caddy.serviceConfig.EnviromentFile = config.age.secrets.cfDnsKey.path;
 
   networking.firewall.allowedTCPPorts = [
     80
