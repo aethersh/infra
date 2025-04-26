@@ -5,6 +5,12 @@
   config,
   ...
 }:
+let
+  caddyWithCfDns = unstable.caddy.withPlugins {
+    plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
+    hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
+  };
+in
 {
   age.secrets.caddyEnvVars = {
     file = ../../secrets/caddyEnvVars.age;
@@ -19,13 +25,11 @@
 
   services.caddy = {
     enable = true;
-    package = (
-      unstable.caddy.withPlugins {
-        plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-        hash = "sha256-UwrkarDwfb6u+WGwkAq+8c+nbsFt7sVdxVAV9av0DLo=";
-      }
-    );
+    package = caddyWithCfDns;
     extraConfig = builtins.readFile ./Caddyfile;
+    logFormat = lib.mkForce ''
+    level INFO
+    '';
     virtualHosts."anycast.as215207.net" = {
       extraConfig = ''
         import cf-dns-v6
@@ -37,7 +41,10 @@
   # systemd.services.caddy.serviceConfig.EnviromentFile = config.age.secrets.caddyEnvVars.path;
 
   # List that starts with an empty string forces systemd to "reset" instead of appending a second ExecStart value. This way, we replace the existing one
-  systemd.services.caddy.serviceConfig.ExecStart = lib.mkForce ["" "${pkgs.caddy}/bin/caddy run --config /etc/caddy/caddy_config --adapter caddyfile --envfile ${config.age.secrets.caddyEnvVars.path}"];
+  systemd.services.caddy.serviceConfig.ExecStart = lib.mkForce [
+    ""
+    "${caddyWithCfDns}/bin/caddy run --config /etc/caddy/caddy_config --adapter caddyfile --envfile ${config.age.secrets.caddyEnvVars.path}"
+  ];
 
   networking.firewall.allowedTCPPorts = [
     80
