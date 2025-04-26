@@ -6,7 +6,7 @@
   ...
 }:
 {
-  age.secrets.cfDnsKey = {
+  age.secrets.caddyEnvVars = {
     file = ../../secrets/caddyEnvVars.age;
     owner = "caddy";
     group = "caddy";
@@ -34,7 +34,7 @@
     };
   };
 
-  systemd.services.caddy.serviceConfig.EnviromentFile = config.age.secrets.cfDnsKey.path;
+  systemd.services.caddy.serviceConfig.EnviromentFile = config.age.secrets.caddyEnvVars.path;
 
   networking.firewall.allowedTCPPorts = [
     80
