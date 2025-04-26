@@ -35,8 +35,8 @@
   };
 
   systemd.services.caddy.serviceConfig = {
-    EnviromentFile = config.age.secrets.caddyEnvVars.path;
-    ExecStart = "${pkgs.caddy}/bin/caddy run --config ${config.services.caddy.configFile} --adapter caddyfile --envfile ${config.age.secrets.caddyEnvVars.path}";
+    # EnviromentFile = config.age.secrets.caddyEnvVars.path;
+    ExecStart = lib.mkForce "${pkgs.caddy}/bin/caddy run --config ${config.services.caddy.configFile} --adapter caddyfile --envfile ${config.age.secrets.caddyEnvVars.path}";
   };
 
   networking.firewall.allowedTCPPorts = [
