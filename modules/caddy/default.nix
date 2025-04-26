@@ -28,13 +28,27 @@ in
     package = caddyWithCfDns;
     extraConfig = builtins.readFile ./Caddyfile;
     logFormat = lib.mkForce ''
-    level INFO
+      level INFO
     '';
-    virtualHosts."anycast.as215207.net" = {
-      extraConfig = ''
-        import cf-dns-v6
-        respond "You have reached the anycast IPv6 address of AS215207: 2602:fbcf:df::1 \n This is being served by ${config.networking.hostName} in ${config.motd.location} \n Ping this server directly at 6.${config.networking.hostName}.as215207.net"
-      '';
+    virtualHosts = {
+      "anycast.as215207.net" = {
+        extraConfig = ''
+          import cf-dns-v6
+          respond "You have reached the anycast IPv6 address of AS215207: 2602:fbcf:df::1 . This is being served by ${config.networking.hostName}.as215207.net in ${config.motd.location}. Ping this server directly at 6.${config.networking.hostName}.as215207.net"
+        '';
+      };
+      "${config.networking.hostName}.as215207.net" = {
+        extraConfig = ''
+          import cf-dns-v6
+          respond "You have reached the service address of ${config.networking.hostName}.as215207.net in ${config.motd.location}. Try the AS215207 address at 6.${config.networking.hostName}.as215207.net"
+        '';
+      };
+      "6.${config.networking.hostName}.as215207.net" = {
+        extraConfig = ''
+          import cf-dns-v6
+          respond "You have reached the AS215207 IPv6 address of ${config.networking.hostName}.as215207.net in ${config.motd.location}"
+        '';
+      };
     };
   };
 
