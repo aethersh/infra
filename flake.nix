@@ -50,10 +50,15 @@
       };
     in
     {
+      packages = forEachSystem (feSystem: import ./packages inputs.unstable.legacyPackages.${feSystem});
+
+      overlays = import ./overlays { };
+
       nixosConfigurations = {
         pete = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -65,6 +70,7 @@
         maple = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -76,6 +82,7 @@
         bay = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -92,6 +99,7 @@
         yeehaw = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -103,6 +111,7 @@
         kier = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -114,6 +123,7 @@
         nova = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -125,6 +135,7 @@
         strudel = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -136,6 +147,7 @@
         tulip = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -147,6 +159,7 @@
         falaise = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit inputs;
             inherit unstable;
           };
           modules = [
@@ -155,8 +168,6 @@
           ];
         };
       };
-
-      packages = forEachSystem (feSystem: import ./packages inputs.unstable.legacyPackages.${feSystem});
 
       deploy = {
         fastConnection = true;
