@@ -27,9 +27,8 @@
       ];
       forEachSupportedSystem =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
-      
+
       forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
-      
 
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
