@@ -157,6 +157,7 @@
   };
 
   motd.location = "toronto, on";
+  ae.caddy.enable = true;
 
   metrics.node.enable = true;
   metrics.node.openFirewall = true;
