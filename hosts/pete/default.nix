@@ -86,6 +86,7 @@
   };
 
   motd.location = "new york, ny";
+  ae.caddy.enable = true;
 
   # See options.pathvector in modules/pathvector.nix
   services.pathvector = {
