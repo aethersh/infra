@@ -52,6 +52,10 @@ in
         "root"
         "@wheel"
       ];
+      extra-substituters = [ "https://aethernet.cachix.org" ];
+      extra-trusted-public-keys = [
+        "aethernet.cachix.org-1:D/JfMlOICyT/Ju+xKDIWEVVvzo2OWG8PALrUCQnUTAs="
+      ];
     };
   };
 
