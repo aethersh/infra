@@ -19,6 +19,8 @@
     }@inputs:
     let
 
+    inherit (self) outputs;
+
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -57,7 +59,7 @@
         pete = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -69,7 +71,7 @@
         maple = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -81,7 +83,7 @@
         bay = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -98,7 +100,7 @@
         yeehaw = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -110,7 +112,7 @@
         kier = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -122,7 +124,7 @@
         nova = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -134,7 +136,7 @@
         strudel = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -146,7 +148,7 @@
         tulip = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
@@ -158,7 +160,7 @@
         falaise = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs;
+            inherit inputs outputs;
             inherit unstable;
           };
           modules = [
