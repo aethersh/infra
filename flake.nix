@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef";
 
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:yaxitech/ragenix";
