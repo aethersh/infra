@@ -23,7 +23,7 @@
 
     services.caddy = {
       enable = true;
-      package = outputs.packages.caddy;
+      package = outputs.packages.x86_64-linux.caddy;
       extraConfig = builtins.readFile ./Caddyfile;
       logFormat = lib.mkForce ''
         level INFO
