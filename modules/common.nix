@@ -149,6 +149,7 @@ in
     mtr
     iperf3
     blocky
+    git
   ];
 
   environment.shellAliases = {
