@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  outputs,
   inputs,
   ...
 }:
@@ -61,9 +62,6 @@ in
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = with inputs; [
-      outputs.overlays.packages
-    ];
   };
 
   time.timeZone = lib.mkDefault "America/New_York";

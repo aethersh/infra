@@ -3,7 +3,7 @@
   unstable,
   lib,
   config,
-  inputs,
+  outputs,
   ...
 }:
 {
@@ -23,7 +23,7 @@
 
     services.caddy = {
       enable = true;
-      package = inputs.outputs.packages.caddy;
+      package = outputs.packages.caddy;
       extraConfig = builtins.readFile ./Caddyfile;
       logFormat = lib.mkForce ''
         level INFO
