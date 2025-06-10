@@ -5,7 +5,6 @@ source6: 2602:fbcf:de::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:de::/48
-  - 2a0f:85c1:3aa::/48
 
 kernel:
   accept6: ["static6"]
@@ -124,6 +123,15 @@ peers:
     neighbors:
       - 185.1.166.3
       - 2001:7f8:f2:e1:0:1:3335:1
+
+  Polopro:
+    asn: 208824
+    template: peer # via LOCIX Dusseldorf
+    add-on-import: ["215207:120:208824", "215207:140:1276"]
+    add-on-export: ["215207:140:1276"]
+    neighbors:
+      - 185.1.155.154
+      - 2a0c:b641:701::a5:20:8824:1
 
   AS112:
     asn: 112
