@@ -109,7 +109,6 @@
           allowedIPs = [
             "172.31.0.20/32"
             "fd00:215:207::528/128"
-            "2602:fbcf:db::/48"
           ];
           publicKey = "OXdm485MJpI5923eHf5CUqcXjkkUCXkLGqRC4udLMAs=";
         }
