@@ -56,120 +56,101 @@
 
       overlays = import ./overlays { };
 
-      nixosConfigurations = {
-        pete = nixpkgs.lib.nixosSystem {
-          inherit system;
+      nixosConfigurations =
+        let
           specialArgs = {
+            inherit system;
             inherit inputs outputs;
             inherit unstable;
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/pete
-          ];
-        };
+        in
+        {
+          pete = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/pete
+            ];
+          };
 
-        maple = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          maple = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/maple
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/maple
-          ];
-        };
 
-        bay = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          bay = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/bay
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/bay
-          ];
-        };
 
-        # zurich = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/zurich ];
-        # };
-        #
-        yeehaw = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          # zurich = nixpkgs.lib.nixosSystem {
+          #   system = "x86_64-linux";
+          #   modules = [ ./hosts/zurich ];
+          # };
+          #
+          yeehaw = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/yeehaw
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/yeehaw
-          ];
-        };
 
-        kier = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          kier = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/kier
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/kier
-          ];
-        };
 
-        nova = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          nova = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/nova
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/nova
-          ];
-        };
 
-        strudel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          strudel = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/strudel
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/strudel
-          ];
-        };
 
-        tulip = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          tulip = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/tulip
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/tulip
-          ];
-        };
 
-        falaise = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          falaise = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/falaise
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/falaise
-          ];
         };
-      };
 
       deploy = {
         fastConnection = true;
