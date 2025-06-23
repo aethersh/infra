@@ -3,6 +3,7 @@
   inputs,
   lib,
   system,
+  pkgs,
   ...
 }:
 let
@@ -25,7 +26,7 @@ with lib;
 
   config = mkIf cfg.enable (
     let
-      systemLgDomain = "https://lg.${config.networking.hostname}.as215207.net";
+      systemLgDomain = "https://lg.${config.networking.hostName}.as215207.net";
     in
     {
       users = {
