@@ -157,8 +157,13 @@
   };
 
   motd.location = "toronto, on";
-  ae.caddy.enable = true;
-  ae.algae.enable = true;
+  ae = {
+    caddy.enable = true;
+    algae = {
+      enable = true;
+      location = "2602:fbcf:d8::1";
+    };
+  };
 
   metrics.node.enable = true;
   metrics.node.openFirewall = true;

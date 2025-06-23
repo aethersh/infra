@@ -46,6 +46,7 @@ with lib;
         path = with pkgs; [
           mtr
           inetutils
+          bird2
         ];
         description = "Algae Looking Glass";
         wantedBy = [ "multi-user.target" ];
@@ -82,7 +83,7 @@ with lib;
           '';
         };
       };
-      
+
     }
   );
 }
