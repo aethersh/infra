@@ -54,11 +54,11 @@
         "templ": "templ"
       },
       "locked": {
-        "lastModified": 1750701203,
-        "narHash": "sha256-8+LmREsK4KPN36qJg+touAR43l4nHQtouBoEMJOIs00=",
+        "lastModified": 1750712104,
+        "narHash": "sha256-aNpUUltYsotcf5V5zOvRo3OyEPhXVWyGJbFRqoI5Jz4=",
         "owner": "aethersh",
         "repo": "algae",
-        "rev": "28505c90bbcb95cdd1fa84ca43e7bb2bc022a449",
+        "rev": "8851cc21b95eac475302b4350c619c55ed35ddaf",
         "type": "github"
       },
       "original": {
