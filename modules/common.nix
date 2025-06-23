@@ -14,6 +14,7 @@ in
 
 {
   imports = [
+    ./algae.nix
     ./prometheus.nix
     ./motd.nix
     ./pathvector.nix
