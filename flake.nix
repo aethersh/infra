@@ -7,7 +7,7 @@
 
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:yaxitech/ragenix";
-    algae.url = "github:aethersh/algae/go-rewrite";
+    algae.url = "github:aethersh/algae";
   };
 
   outputs =
