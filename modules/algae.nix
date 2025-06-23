@@ -26,7 +26,7 @@ with lib;
 
   config = mkIf cfg.enable (
     let
-      systemLgDomain = "https://lg.${config.networking.hostName}.as215207.net";
+      systemLgDomain = "lg.${config.networking.hostName}.as215207.net";
     in
     {
       users = {
@@ -50,7 +50,7 @@ with lib;
         description = "Algae Looking Glass";
         wantedBy = [ "multi-user.target" ];
         environment = {
-          ALGAE_ALLOWED_ORIGINS = "http://lg.as215207.net,${systemLgDomain}";
+          ALGAE_ALLOWED_ORIGINS = "http://lg.as215207.net,https://${systemLgDomain}";
           ALGAE_DOMAIN = "as215207.net";
           ALGAE_TEST_V6 = cfg.testIPv6Address;
           ALGAE_LOCATION = cfg.location;
@@ -73,6 +73,16 @@ with lib;
             AmbientCapabilities = caps;
           };
       };
+
+      services.caddy.virtualHosts = {
+        "${systemLgDomain}" = {
+          extraConfig = ''
+            import cf-dns-v6
+            reverse_proxy localhost:2152
+          '';
+        };
+      };
+      
     }
   );
 }
