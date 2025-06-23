@@ -73,7 +73,9 @@ in
     networking.firewall.allowedTCPPorts = [ 179 ];
 
     systemd.services = {
-      bird = {
+      bird = let 
+      birdPkg = pkgs.bird2;
+      in {
         description = "BIRD Internet Routing Daemon";
         wantedBy = [ "multi-user.target" ];
         reloadTriggers = [ config.environment.etc."bird/bird.conf".source ];
@@ -82,7 +84,7 @@ in
           "blocky.service"
         ];
         path = with pkgs; [
-          bird
+          birdPkg
           pathvector
           bgpq4
         ];
@@ -91,9 +93,9 @@ in
           Restart = "on-failure";
           User = "bird";
           Group = "bird";
-          ExecStart = "${pkgs.bird}/bin/bird -c /etc/bird/bird.conf";
-          ExecReload = "${pkgs.bird}/bin/birdc configure";
-          ExecStop = "${pkgs.bird}/bin/birdc down";
+          ExecStart = "${birdPkg}/bin/bird -c /etc/bird/bird.conf";
+          ExecReload = "${birdPkg}/bin/birdc configure";
+          ExecStop = "${birdPkg}/bin/birdc down";
           RuntimeDirectory = "bird";
           CapabilityBoundingSet = caps;
           AmbientCapabilities = caps;
