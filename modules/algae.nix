@@ -6,12 +6,12 @@
   ...
 }:
 let
-  cfg = config.algae;
+  cfg = config.ae.algae;
   algaePkg = inputs.algae.packages.${system}.algae;
 in
 with lib;
 {
-  options.algae = {
+  options.ae.algae = {
     enable = mkEnableOption "Enable the Algae Looking Glass";
     location = mkOption {
       type = types.string;
