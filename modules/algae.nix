@@ -64,7 +64,7 @@ with lib;
             ];
           in
           {
-            Type = "forking";
+            Type = "exec";
             Restart = "on-failure";
             User = "algae";
             Group = "algae";
