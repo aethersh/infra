@@ -7,6 +7,7 @@
 
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:yaxitech/ragenix";
+    algae.url = "github:aethersh/algae/go-rewrite";
   };
 
   outputs =
@@ -19,7 +20,7 @@
     }@inputs:
     let
 
-    inherit (self) outputs;
+      inherit (self) outputs;
 
       supportedSystems = [
         "x86_64-linux"
