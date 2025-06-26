@@ -142,6 +142,15 @@
             ];
           };
 
+          canal = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/canal
+            ];
+          };
+
           falaise = nixpkgs.lib.nixosSystem {
             inherit system;
             inherit specialArgs;
@@ -200,6 +209,10 @@
           kier = {
             hostname = "kier.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.kier;
+          };
+          canal = {
+            hostname = "canal.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.canal;
           };
         };
       };
