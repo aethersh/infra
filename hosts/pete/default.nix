@@ -57,7 +57,7 @@
       interface = "ens3";
     };
 
-    wireguard.enable = true;
+    wireguard.enable = false;
     wireguard.interfaces.wg0 = {
       privateKeyFile = config.age.secrets.peteWgPrivkey.path;
       ips = [
