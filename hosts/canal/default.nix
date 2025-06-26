@@ -29,14 +29,14 @@
           prefixLength = 64;
         }
 
-        # {
-        #   address = "2602:fbcf:df::1";
-        #   prefixLength = 48;
-        # }
-        # {
-        #   address = "2602:fbcf:d4::1";
-        #   prefixLength = 48;
-        # }
+        {
+          address = "2602:fbcf:df::1";
+          prefixLength = 48;
+        }
+        {
+          address = "2602:fbcf:dd::1";
+          prefixLength = 48;
+        }
       ];
     };
 
@@ -50,10 +50,10 @@
     };
   };
 
-  # services.pathvector = {
-  #   enable = true;
-  #   configFile = ./pathvector.yml;
-  # };
+  services.pathvector = {
+    enable = true;
+    configFile = ./pathvector.yml;
+  };
 
   # ======================== DO NOT CHANGE THIS ========================
   system.stateVersion = "25.05";
