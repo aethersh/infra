@@ -29,14 +29,14 @@
           prefixLength = 64;
         }
 
-        # {
-        #   address = "2602:fbcf:df::1";
-        #   prefixLength = 48;
-        # }
-        # {
-        #   address = "2602:fbcf:dd::1";
-        #   prefixLength = 48;
-        # }
+        {
+          address = "2602:fbcf:df::1";
+          prefixLength = 48;
+        }
+        {
+          address = "2602:fbcf:dd::1";
+          prefixLength = 48;
+        }
       ];
     };
 

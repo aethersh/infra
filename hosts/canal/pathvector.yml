@@ -12,8 +12,8 @@ local-communities: ["215207:0:100"]
 
 default-route: false
 
-# kernel:
-#   accept6: ["static6"]
+kernel:
+  accept6: ["static6"]
 
 templates:
   upstream:
