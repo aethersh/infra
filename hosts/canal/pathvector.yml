@@ -68,6 +68,7 @@ peers:
     template: upstream
     multihop: true
     add-on-import: ["215207:120:64289"]
+    add-on-export: ["215207:120:64289"]
     neighbors:
       - 45.90.187.16
       - 2a14:3f87:f002:e::a
