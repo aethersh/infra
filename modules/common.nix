@@ -94,6 +94,7 @@ in
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
     "net.ipv6.conf.all.accept_ra" = 0;
+    "net.ipv6.route.max_size" = 1073741824;
   };
 
   services = {
