@@ -130,6 +130,7 @@ peers:
     template: peer # via LOCIX Dusseldorf
     add-on-import: ["215207:120:208824", "215207:140:1276"]
     add-on-export: ["215207:140:1276"]
+    filter-irr: false
     neighbors:
       - 2a0c:b641:701::a5:20:8824:1
 
