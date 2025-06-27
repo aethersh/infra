@@ -84,7 +84,7 @@ in
             reloadTriggers = [ config.environment.etc."bird/bird.conf".source ];
             requires = [
               "network-online.target"
-              "blocky.service"
+              # "blocky.service" dependency declared in blocky.nix
             ];
             path = with pkgs; [
               birdPkg
@@ -119,7 +119,7 @@ in
             reloadTriggers = [ config.environment.etc."pathvector.yml".source ];
             requires = [
               "bird.service"
-              "blocky.service"
+              # "blocky.service"
             ];
             path = with pkgs; [ bgpq4 ];
             serviceConfig = {
