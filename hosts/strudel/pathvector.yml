@@ -44,6 +44,7 @@ templates:
     remove-all-communities: 215207
     local-pref: 100
     add-on-import: ["215207:100:100"]
+    irr-accept-child-prefixes: true
 
   downstream:
     filter-irr: true
