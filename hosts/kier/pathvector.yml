@@ -4,7 +4,7 @@ source4: 23.143.82.38
 source6: 2602:fbcf:d4::1
 prefixes:
   - 2602:fbcf:df::/48
-  - 2602:fbcf:d4::/48
+  - 2602:fbcf:d3::/48
 
 add-on-export: ["215207:140:34840"]
 add-on-import: ["215207:140:34840"]
