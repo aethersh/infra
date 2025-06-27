@@ -51,7 +51,7 @@
   };
 
   services.pathvector = {
-    enable = false;
+    enable = true;
     configFile = ./pathvector.yml;
   };
 
