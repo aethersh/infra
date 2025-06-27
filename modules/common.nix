@@ -166,6 +166,8 @@ in
   metrics.bird.enable = lib.mkDefault true;
   metrics.bird.openFirewall = lib.mkDefault true;
 
+  ae.blocky.enable = lib.mkDefault true;
+
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [
