@@ -69,7 +69,7 @@
       interface = "ens18";
     };
 
-    wireguard.enable = true;
+    wireguard.enable = false;
     wireguard.interfaces.wg0 = {
       privateKeyFile = config.age.secrets.tulipWgPrivkey.path;
       ips = [
