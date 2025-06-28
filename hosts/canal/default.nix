@@ -50,6 +50,14 @@
     };
   };
 
+  ae = {
+    caddy.enable = true;
+    rpki = {
+      enable = true;
+      domain = "rpki.as215207.net";
+    };
+  };
+
   services.pathvector = {
     enable = true;
     configFile = ./pathvector.yml;
