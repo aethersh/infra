@@ -23,6 +23,7 @@ in
     ./globalping.nix
     ../secrets
     ./caddy
+    ./rpki.nix
   ];
 
   nix = {
