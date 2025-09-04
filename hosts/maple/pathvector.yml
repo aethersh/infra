@@ -11,6 +11,8 @@ add-on-export: ["215207:140:4124"]
 add-on-import: ["215207:140:4124"]
 local-communities: ["215207:0:100"]
 
+default-route: false
+
 kernel:
   accept6: ["static6"]
 
