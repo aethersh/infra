@@ -87,7 +87,10 @@
         ];
       };
     };
-    nameservers = [ "9.9.9.9" "1.1.1.1" ];
+    nameservers = [
+      "9.9.9.9"
+      "1.1.1.1"
+    ];
 
     defaultGateway = {
       address = "194.28.99.222";

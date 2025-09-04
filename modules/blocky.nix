@@ -73,9 +73,9 @@ in
 
       systemd.services = {
         bird.requires = [
-        "blocky.service"
+          "blocky.service"
         ];
-        pathvector.requires = ["blocky.service"];
+        pathvector.requires = [ "blocky.service" ];
         blocky = {
           description = "A DNS proxy and ad-blocker for the local network";
           requires = [ "network-online.target" ];

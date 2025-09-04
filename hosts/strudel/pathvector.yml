@@ -3,8 +3,8 @@ router-id: 194.28.99.208
 source4: 194.28.99.208
 source6: 2602:fbcf:de::1
 prefixes:
-  - 2602:fbcf:df::/48
   - 2602:fbcf:de::/48
+  - 2602:fbcf:df::/48
 
 kernel:
   accept6: ["static6"]
