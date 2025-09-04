@@ -14,6 +14,8 @@
 
   motd.location = "kansas city";
 
+  services.qemuGuest.enable = true;
+
   networking = {
     hostName = "kier";
     interfaces.ens18 = {
