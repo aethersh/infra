@@ -5,6 +5,7 @@ source6: 2602:fbcf:d0::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:d0::/48
+  - 2602:f542:ae::/48
 
 add-on-export: ["215207:140:11840"]
 add-on-import: ["215207:140:11840"]
