@@ -2,7 +2,7 @@
   description = "AetherNet's NixOS-based infrastructure";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable.url = "github:nixos/nixpkgs/b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef";
 
     deploy-rs.url = "github:serokell/deploy-rs";
