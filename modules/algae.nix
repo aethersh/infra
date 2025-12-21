@@ -15,11 +15,11 @@ with lib;
   options.ae.algae = {
     enable = mkEnableOption "Enable the Algae Looking Glass";
     location = mkOption {
-      type = types.string;
+      type = types.str;
       default = config.motd.location;
     };
     testIPv6Address = mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
     };
   };
