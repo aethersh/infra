@@ -87,7 +87,7 @@ in
       allowedUDPPorts = [ wireguardListenPort ];
       trustedInterfaces = [ "wg0" ];
     };
-    wireguard.interfaces.wg0.listenPort = wireguardListenPort;
+    # wireguard.interfaces.wg0.listenPort = wireguardListenPort;
   };
 
   # https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html
