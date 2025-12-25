@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  wireguardListenPort = 60908;
+in
 
 {
   imports = [
@@ -57,33 +60,73 @@
       interface = "ens3";
     };
 
-    wireguard.enable = false;
-    wireguard.interfaces.wg0 = {
-      privateKeyFile = config.age.secrets.peteWgPrivkey.path;
-      ips = [
-        "2602:fbcf:d0:beef::/64"
-      ];
-      peers = [
-        {
-          name = "pepacton-henrik";
-          publicKey = "vxl2WJhIAdV3wz2i9G+vibxjA2rWVjL6/gHtYqf31gg=";
-          persistentKeepalive = 15;
-          allowedIPs = [
-            "2602:fbcf:d0:bee5::/64"
-          ];
-        }
-        # {
-        #   name = "pete";
+    wireguard.enable = true;
+    wireguard.interfaces = {
+      # wg0 = {
+      #   privateKeyFile = config.age.secrets.peteWgPrivkey.path;
+      #   ips = [
+      #     "2602:fbcf:d0:beef::/64"
+      #   ];
+      #   peers = [
+      #     {
+      #       name = "pepacton-henrik";
+      #       publicKey = "vxl2WJhIAdV3wz2i9G+vibxjA2rWVjL6/gHtYqf31gg=";
+      #       persistentKeepalive = 15;
+      #       allowedIPs = [
+      #         "2602:fbcf:d0:bee5::/64"
+      #       ];
+      #     }
+      #     # {
+      #     #   name = "pete";
+      #
+      #     #   endpoint = "pete.as215207.net:60908";
+      #     #   allowedIPs = [
+      #     #     "172.31.0.5/32"
+      #     #     "2602:fbcf:dd:d6::/64"
+      #     #   ];
+      #     # }
+      #   ];
+      # };
+      wg1 = {
+        privateKeyFile = config.age.secrets.peteWgPrivkey.path;
         #   publicKey = "UI+GluPRk0biKO+JITUDgOy+4b2LOw7x7TbhML/lC1Q=";
-        #   endpoint = "pete.as215207.net:60908";
-        #   allowedIPs = [
-        #     "172.31.0.5/32"
-        #     "2602:fbcf:dd:d6::/64"
-        #   ];
-        # }
-      ];
+        listenPort = wireguardListenPort;
+        ips = [
+          "10.255.0.1/30"
+          "fd00:10:255::1/126"
+        ];
+        peers = [
+          {
+            name = "vrouter1-mlfrpa";
+            publicKey = "hJk3EMTXlTtnaM7uRixMpyLfuIEzYCY5xYQj9Lv2axc=";
+            allowedIPs = [
+              "0.0.0.0/0"
+              "::/0"
+            ]; # Allow all traffic through tunnel
+          }
+        ];
+      };
     };
   };
+
+  environment.etc."bird/manual-henriklab.conf".text = ''
+    protocol device {}
+    protocol direct { ipv6; }
+
+    protocol ospf v3 ospf_v6 {
+      ipv6 {
+        import all;
+        export where source = RTS_BGP; # Push your public BGP routes to VyOS
+      };
+      area 0 {
+        interface "wg1" {
+          type ptp; # Critical for WireGuard
+          hello 10;
+          dead 40;
+        };
+      };
+    }
+  '';
 
   motd.location = "new york, ny";
   ae.caddy.enable = true;
