@@ -48,11 +48,10 @@ in
 
         environment.etc."pathvector.yml".source = pkgs.writeTextFile {
           name = "pathvector";
-          text =
-            ''
-              bird-binary: ${birdPkg}/bin/bird
-            ''
-            + builtins.readFile cfg.configFile;
+          text = ''
+            bird-binary: ${birdPkg}/bin/bird
+          ''
+          + builtins.readFile cfg.configFile;
         };
 
         environment.etc."bird/bird.conf" = {
