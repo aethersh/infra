@@ -110,9 +110,6 @@ in
   };
 
   environment.etc."bird/manual-henriklab.conf".text = ''
-    protocol device {}
-    protocol direct { ipv6; }
-
     protocol ospf v3 ospf_v6 {
       ipv6 {
         import all;
