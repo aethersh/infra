@@ -109,21 +109,24 @@ in
     };
   };
 
-  environment.etc."bird/manual-henriklab.conf".text = ''
-    protocol ospf v3 ospf_v6 {
-      ipv6 {
-        import all;
-        export where source = RTS_BGP; # Push your public BGP routes to VyOS
-      };
-      area 0 {
-        interface "wg1" {
-          type ptp; # Critical for WireGuard
-          hello 10;
-          dead 40;
+  environment.etc."bird/manual-henriklab.conf" = {
+    mode = "0600";
+    text = ''
+      protocol ospf v3 ospf_v6 {
+        ipv6 {
+          import all;
+          export where source = RTS_BGP; # Push your public BGP routes to VyOS
         };
-      };
-    }
-  '';
+        area 0 {
+          interface "wg1" {
+            type ptp; # Critical for WireGuard
+            hello 10;
+            dead 40;
+          };
+        };
+      }
+    '';
+  };
 
   motd.location = "new york, ny";
   ae.caddy.enable = true;
