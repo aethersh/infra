@@ -11,8 +11,8 @@ add-on-export: ["215207:140:34840"]
 add-on-import: ["215207:140:34840"]
 local-communities: ["215207:0:100"]
 
-kernel:
-  accept6: ["static6"]
+# kernel:
+#   accept6: ["static6"]
 
 templates:
   upstream:
