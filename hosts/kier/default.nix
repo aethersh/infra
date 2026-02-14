@@ -18,19 +18,8 @@
 
   networking = {
     hostName = "kier";
-    interfaces.ens18 = {
-      ipv4.addresses = [
-        {
-          address = "23.143.82.38";
-          prefixLength = 24;
-        }
-      ];
-      ipv6.addresses = [
-        {
-          address = "2602:fc26:12:1::38";
-          prefixLength = 48;
-        }
-
+    interfaces = {
+      lo.ipv6.addresses = [
         {
           address = "2602:fbcf:df::1";
           prefixLength = 48;
@@ -40,6 +29,21 @@
           prefixLength = 48;
         }
       ];
+      ens18 = {
+        ipv4.addresses = [
+          {
+            address = "23.143.82.38";
+            prefixLength = 24;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "2602:fc26:12:1::38";
+            prefixLength = 48;
+          }
+
+        ];
+      };
     };
 
     defaultGateway = {
