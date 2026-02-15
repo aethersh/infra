@@ -11,8 +11,7 @@ add-on-export: ["215207:140:34840"]
 add-on-import: ["215207:140:34840"]
 local-communities: ["215207:0:100"]
 
-kernel:
-  accept6: ["static6"]
+accept-default: true
 
 templates:
   upstream:
@@ -26,18 +25,6 @@ templates:
     tags:
       - upstream
 
-  routeserver:
-    filter-transit-asns: true
-    auto-import-limits: true
-    enforce-peer-nexthop: false
-    enforce-first-as: false
-    announce: ["215207:100:200"]
-    remove-all-communities: 215207
-    local-pref: 90
-    add-on-import: ["215207:100:90"]
-    tags:
-      - routeserver
-
   peer:
     filter-irr: true
     filter-transit-asns: true
@@ -49,19 +36,6 @@ templates:
     add-on-import: ["215207:100:100"]
     tags:
       - peer
-
-  downstream:
-    filter-irr: true
-    allow-blackhole-community: true
-    filter-transit-asns: true
-    auto-import-limits: true
-    auto-as-set: true
-    announce: ["215207:100:200"]
-    remove-all-communities: 215207
-    local-pref: 200
-    add-on-import: ["215207:100:200"]
-    tags:
-      - downstream
 
 peers:
   Andrewnet:
