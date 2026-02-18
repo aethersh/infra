@@ -37,6 +37,19 @@ templates:
     tags:
       - peer
 
+  downstream:
+    filter-irr: true
+    allow-blackhole-community: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+    announce: ["215207:100:200"]
+    remove-all-communities: 215207
+    local-pref: 200
+    add-on-import: ["215207:100:200"]
+    tags:
+      - downstream
+
 peers:
   Andrewnet:
     asn: 1003
@@ -46,3 +59,13 @@ peers:
     neighbors:
       - 23.143.82.1
       - 2602:fc26:12::1
+  Conifer:
+    asn: 63477
+    filter-irr: false
+    auto-as-set: false
+    auto-import-limits: false
+    template: downstream
+    add-on-import: ["215207:120:1003"]
+    neighbors:
+      - 23.143.82.39
+      - 2602:fc26:12::39
