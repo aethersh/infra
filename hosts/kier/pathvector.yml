@@ -64,6 +64,7 @@ peers:
     auto-as-set: false
     auto-import-limits: false
     announce-all: true
+    enforce-peer-nexthop: false
     neighbors:
       - 23.143.82.39
       - 2602:fc26:12:1::39
