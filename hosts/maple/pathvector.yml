@@ -60,14 +60,14 @@ peers:
       - 2001:504:125:e1::1
       - 2001:504:125:e1::2
 
-  Hurricane Electric:
-    asn: 6939
-    template: upstream
-    prepends: 1
-    add-on-import: ["215207:120:6939"]
-    blackhole-in: true
-    neighbors:
-      - 2001:504:125:e1::3
+  # Hurricane Electric:
+  #   asn: 6939
+  #   template: upstream
+  #   prepends: 1
+  #   add-on-import: ["215207:120:6939"]
+  #   blackhole-in: true
+  #   neighbors:
+  #     - 2001:504:125:e1::3
 
   AndrewNet:
     asn: 1003
