@@ -4,7 +4,6 @@ source6: 2a0c:9a40:2510:1001::10f5
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:da::/48
-  - 2a0f:85c1:3aa::/48
 
 # hello!
 

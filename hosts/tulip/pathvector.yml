@@ -5,7 +5,6 @@ source6: 2602:fbcf:db::1
 prefixes:
   - 2602:fbcf:df::/48
   - 2602:fbcf:db::/48
-  - 2a0f:85c1:3aa::/48
 
 kernel:
   accept6: ["static6"]
