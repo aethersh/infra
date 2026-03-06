@@ -2,11 +2,12 @@
   description = "AetherNet's NixOS-based infrastructure";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable.url = "github:nixos/nixpkgs/b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef";
 
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:yaxitech/ragenix";
+    algae.url = "github:aethersh/algae";
   };
 
   outputs =
@@ -19,7 +20,7 @@
     }@inputs:
     let
 
-    inherit (self) outputs;
+      inherit (self) outputs;
 
       supportedSystems = [
         "x86_64-linux"
@@ -40,7 +41,7 @@
       deployPkgs = import nixpkgs {
         inherit system;
         overlays = [
-          deploy-rs.overlay
+          deploy-rs.overlays.default
           (self: super: {
             deploy-rs = {
               inherit (pkgs) deploy-rs;
@@ -55,120 +56,110 @@
 
       overlays = import ./overlays { };
 
-      nixosConfigurations = {
-        pete = nixpkgs.lib.nixosSystem {
-          inherit system;
+      nixosConfigurations =
+        let
           specialArgs = {
+            inherit system;
             inherit inputs outputs;
             inherit unstable;
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/pete
-          ];
-        };
+        in
+        {
+          pete = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/pete
+            ];
+          };
 
-        maple = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          maple = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/maple
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/maple
-          ];
-        };
 
-        bay = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          bay = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/bay
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/bay
-          ];
-        };
 
-        # zurich = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/zurich ];
-        # };
-        #
-        yeehaw = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          # zurich = nixpkgs.lib.nixosSystem {
+          #   system = "x86_64-linux";
+          #   modules = [ ./hosts/zurich ];
+          # };
+          #
+          yeehaw = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/yeehaw
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/yeehaw
-          ];
-        };
 
-        kier = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          kier = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/kier
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/kier
-          ];
-        };
 
-        nova = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          nova = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/nova
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/nova
-          ];
-        };
 
-        strudel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          strudel = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/strudel
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/strudel
-          ];
-        };
 
-        tulip = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          tulip = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/tulip
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/tulip
-          ];
-        };
 
-        falaise = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs outputs;
-            inherit unstable;
+          canal = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/canal
+            ];
           };
-          modules = [
-            agenix.nixosModules.default
-            ./hosts/falaise
-          ];
+
+          falaise = nixpkgs.lib.nixosSystem {
+            inherit system;
+            inherit specialArgs;
+            modules = [
+              agenix.nixosModules.default
+              ./hosts/falaise
+            ];
+          };
         };
-      };
 
       deploy = {
         fastConnection = true;
@@ -218,6 +209,10 @@
           kier = {
             hostname = "kier.as215207.net";
             profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.kier;
+          };
+          canal = {
+            hostname = "canal.as215207.net";
+            profiles.system.path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.canal;
           };
         };
       };

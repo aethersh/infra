@@ -14,6 +14,7 @@ in
 
 {
   imports = [
+    ./algae.nix
     ./prometheus.nix
     ./motd.nix
     ./pathvector.nix
@@ -22,6 +23,7 @@ in
     ./globalping.nix
     ../secrets
     ./caddy
+    ./rpki.nix
   ];
 
   nix = {
@@ -85,7 +87,7 @@ in
       allowedUDPPorts = [ wireguardListenPort ];
       trustedInterfaces = [ "wg0" ];
     };
-    wireguard.interfaces.wg0.listenPort = wireguardListenPort;
+    # wireguard.interfaces.wg0.listenPort = wireguardListenPort;
   };
 
   # https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html
@@ -93,6 +95,7 @@ in
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
     "net.ipv6.conf.all.accept_ra" = 0;
+    "net.ipv6.route.max_size" = 1073741824;
   };
 
   services = {
@@ -163,6 +166,8 @@ in
   metrics.node.openFirewall = lib.mkDefault true;
   metrics.bird.enable = lib.mkDefault true;
   metrics.bird.openFirewall = lib.mkDefault true;
+
+  ae.blocky.enable = lib.mkDefault true;
 
   users.users.admin = {
     isNormalUser = true;

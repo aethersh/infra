@@ -23,6 +23,14 @@
     hostName = "maple";
 
     interfaces = {
+      lo.ipv6.addresses = [ {
+            address = "2602:fbcf:d8::1";
+            prefixLength = 48;
+          }
+          {
+            address = "2602:fbcf:df::1";
+            prefixLength = 48;
+          } ];
       ens18 = {
         # ParadoxNetworks
         ipv4.addresses = [
@@ -35,15 +43,6 @@
           {
             address = "2602:fa7e:10::4a";
             prefixLength = 64;
-          }
-
-          {
-            address = "2602:fbcf:d8::1";
-            prefixLength = 48;
-          }
-          {
-            address = "2602:fbcf:df::1";
-            prefixLength = 48;
           }
         ];
       };
@@ -157,7 +156,13 @@
   };
 
   motd.location = "toronto, on";
-  ae.caddy.enable = true;
+  ae = {
+    caddy.enable = true;
+    algae = {
+      enable = true;
+      testIPv6Address = "2602:fbcf:d8::1";
+    };
+  };
 
   metrics.node.enable = true;
   metrics.node.openFirewall = true;

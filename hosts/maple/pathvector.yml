@@ -10,8 +10,7 @@ add-on-export: ["215207:140:4124"]
 add-on-import: ["215207:140:4124"]
 local-communities: ["215207:0:100"]
 
-kernel:
-  accept6: ["static6"]
+accept-default: true
 
 templates:
   upstream:
@@ -43,17 +42,6 @@ templates:
     local-pref: 100
     add-on-import: ["215207:100:100"]
 
-  downstream:
-    filter-irr: true
-    allow-blackhole-community: true
-    filter-transit-asns: true
-    auto-import-limits: true
-    auto-as-set: true
-    announce: ["215207:100:200"]
-    remove-all-communities: 215207
-    local-pref: 200
-    add-on-import: ["215207:100:200"]
-
 peers:
   Paradox Networks:
     asn: 52025
@@ -71,13 +59,14 @@ peers:
       - 2001:504:125:e1::1
       - 2001:504:125:e1::2
 
-  Hurricane Electric:
-    asn: 6939
-    template: upstream
-    prepends: 1
-    add-on-import: ["215207:120:6939"]
-    neighbors:
-      - 2001:504:125:e1::3
+  # Hurricane Electric:
+  #   asn: 6939
+  #   template: upstream
+  #   prepends: 1
+  #   add-on-import: ["215207:120:6939"]
+  #   blackhole-in: true
+  #   neighbors:
+  #     - 2001:504:125:e1::3
 
   AndrewNet:
     asn: 1003

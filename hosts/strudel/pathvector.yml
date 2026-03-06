@@ -3,8 +3,8 @@ router-id: 194.28.99.208
 source4: 194.28.99.208
 source6: 2602:fbcf:de::1
 prefixes:
-  - 2602:fbcf:df::/48
   - 2602:fbcf:de::/48
+  - 2602:fbcf:df::/48
 
 kernel:
   accept6: ["static6"]
@@ -14,6 +14,8 @@ kernel:
 # Location Communities are attached explicitly on peers.
 
 local-communities: ["215207:0:100"]
+
+default-route: false
 
 templates:
   upstream:
@@ -44,6 +46,7 @@ templates:
     remove-all-communities: 215207
     local-pref: 100
     add-on-import: ["215207:100:100"]
+    irr-accept-child-prefixes: true
 
   downstream:
     filter-irr: true
@@ -129,8 +132,8 @@ peers:
     template: peer # via LOCIX Dusseldorf
     add-on-import: ["215207:120:208824", "215207:140:1276"]
     add-on-export: ["215207:140:1276"]
+    filter-irr: false
     neighbors:
-      - 185.1.155.154
       - 2a0c:b641:701::a5:20:8824:1
 
   AS112:
