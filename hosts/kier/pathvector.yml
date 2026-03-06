@@ -59,12 +59,7 @@ peers:
       - 2602:fc26:12::1
   Conifer:
     asn: 63477
-    template: downstream
-    filter-irr: false
-    auto-as-set: false
-    auto-import-limits: false
-    announce-all: true
-    enforce-peer-nexthop: false
+    template: peer
     neighbors:
       - 23.143.82.39
       - 2602:fc26:12:1::39
